@@ -1,0 +1,2991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMP Certification Study Hub - Interactive Learning Platform</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --danger: #ef4444;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #e2e8f0;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --border: #e2e8f0;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --success: #22c55e;
+        }
+        
+        [data-theme="dark"] {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #34d399;
+            --accent: #fbbf24;
+            --danger: #f87171;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            --border: #334155;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 2px 4px var(--shadow));
+        }
+        
+        .logo-text h1 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo-text p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-input {
+            padding: 0.625rem 2.5rem 0.625rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            width: 280px;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+        
+        .btn {
+            padding: 0.625rem 1.25rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+        
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 2px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--bg-tertiary);
+        }
+        
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            padding: 0.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            transform: rotate(180deg);
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: var(--bg-primary);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px var(--shadow);
+        }
+        
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        
+        .stat-icon {
+            font-size: 2rem;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 0.75rem;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+            scrollbar-width: thin;
+        }
+        
+        .nav-tab {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav-tab:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+        
+        .nav-tab.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+        
+        /* Content Sections */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Study Card */
+        .study-card {
+            background: var(--bg-primary);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .study-card:hover {
+            box-shadow: 0 8px 24px var(--shadow);
+        }
+        
+        .study-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .study-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .day-badge {
+            display: inline-block;
+            padding: 0.375rem 0.75rem;
+            background: linear-gradient(135deg, var(--accent), #f97316);
+            color: white;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .bookmark-btn {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+        
+        .bookmark-btn:hover,
+        .bookmark-btn.bookmarked {
+            color: var(--accent);
+            transform: scale(1.2);
+        }
+        
+        .study-content {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .study-content h2 {
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        
+        .study-content h3 {
+            color: var(--text-primary);
+            margin-top: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .study-content ul,
+        .study-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .study-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .study-content strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+            padding: 0.125rem 0.375rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        /* Key Points Box */
+        .key-points {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(16, 185, 129, 0.05));
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+        
+        .key-points h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Exam Tips Box */
+        .exam-tip {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+        
+        .exam-tip h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Warning Box */
+        .warning {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.1));
+            border-left: 4px solid var(--danger);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+        
+        .warning h3 {
+            color: var(--danger);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Success Box */
+        .success-box {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1));
+            border-left: 4px solid var(--success);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+        
+        .success-box h3 {
+            color: var(--success);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Quiz Section */
+        .quiz-container {
+            background: var(--bg-primary);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+        
+        .quiz-question {
+            margin-bottom: 2rem;
+        }
+        
+        .question-number {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .question-text {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .quiz-option {
+            padding: 1.25rem;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .quiz-option:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--primary);
+            transform: translateX(4px);
+        }
+        
+        .quiz-option.selected {
+            background: rgba(37, 99, 235, 0.1);
+            border-color: var(--primary);
+        }
+        
+        .quiz-option.correct {
+            background: rgba(34, 197, 94, 0.1);
+            border-color: var(--success);
+        }
+        
+        .quiz-option.incorrect {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: var(--danger);
+        }
+        
+        .option-letter {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .quiz-explanation {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid var(--secondary);
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        .quiz-explanation.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .quiz-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .quiz-score {
+            background: linear-gradient(135deg, var(--secondary), #10b981);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .quiz-score h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .quiz-score p {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 1rem 0;
+        }
+        
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+        
+        thead {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+        
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 700;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        tbody tr:hover {
+            background: var(--bg-secondary);
+        }
+        
+        /* Code Blocks */
+        code {
+            background: var(--bg-secondary);
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.875rem;
+            color: var(--primary);
+        }
+        
+        pre {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        
+        .footer p {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .search-input {
+                width: 100%;
+            }
+            
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-tabs {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+            }
+            
+            .study-card {
+                padding: 1.5rem;
+            }
+            
+            .quiz-actions {
+                flex-direction: column;
+            }
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid var(--border);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.875rem;
+            white-space: nowrap;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">🎓</div>
+                <div class="logo-text">
+                    <h1>PMP Study Hub</h1>
+                    <p>Interactive Learning Platform</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        id="searchInput" 
+                        placeholder="Search topics, keywords..."
+                        onkeyup="searchContent()"
+                    >
+                    <span class="search-icon">🔍</span>
+                </div>
+                <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+                <button class="btn btn-primary" onclick="showTab('quiz')">
+                    <span>📝</span> Practice Quiz
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">📚</div>
+                    <div>
+                        <div class="stat-value" id="totalDays">9</div>
+                        <div class="stat-label">Study Days Completed</div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 90%"></div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">✅</div>
+                    <div>
+                        <div class="stat-value" id="topicsCompleted">27</div>
+                        <div class="stat-label">Topics Mastered</div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 75%"></div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">🎯</div>
+                    <div>
+                        <div class="stat-value" id="quizScore">--</div>
+                        <div class="stat-label">Quiz Average</div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="quizProgress" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">📖</div>
+                    <div>
+                        <div class="stat-value" id="bookmarks">0</div>
+                        <div class="stat-label">Bookmarked Items</div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 30%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('overview')">
+                <span>🏠</span> Overview
+            </button>
+            <button class="nav-tab" onclick="showTab('days1-6')">
+                <span>📅</span> Days 1-6
+            </button>
+            <button class="nav-tab" onclick="showTab('day7')">
+                <span>📅</span> Day 7: Lean
+            </button>
+            <button class="nav-tab" onclick="showTab('day8')">
+                <span>📅</span> Day 8: Integration
+            </button>
+            <button class="nav-tab" onclick="showTab('day9')">
+                <span>📅</span> Day 9: Planning
+            </button>
+            <button class="nav-tab" onclick="showTab('cheatsheet')">
+                <span>⚡</span> Cheat Sheets
+            </button>
+            <button class="nav-tab" onclick="showTab('quiz')">
+                <span>📝</span> Practice Quiz
+            </button>
+            <button class="nav-tab" onclick="showTab('bookmarks')">
+                <span>⭐</span> Bookmarks
+            </button>
+        </div>
+
+        <!-- Overview Section -->
+        <div id="overview" class="content-section active">
+            <div class="study-card">
+                <div class="study-card-header">
+                    <h1 class="study-card-title">
+                        <span>🎯</span>
+                        Welcome to Your PMP Study Hub
+                    </h1>
+                </div>
+                <div class="study-content">
+                    <p style="font-size: 1.125rem; margin-bottom: 2rem;">
+                        Your comprehensive, interactive platform for mastering the PMP certification exam. 
+                        This platform combines all your study materials, practice quizzes, and progress tracking in one beautiful interface.
+                    </p>
+                    
+                    <div class="key-points">
+                        <h3><span>✨</span> Platform Features</h3>
+                        <ul>
+                            <li><strong>8 Days of Comprehensive Notes</strong> - Detailed coverage of all PMP domains</li>
+                            <li><strong>Interactive Practice Quizzes</strong> - Test your knowledge with instant feedback</li>
+                            <li><strong>Smart Search</strong> - Find any topic instantly across all materials</li>
+                            <li><strong>Progress Tracking</strong> - Monitor your learning journey</li>
+                            <li><strong>Bookmark System</strong> - Save important topics for quick reference</li>
+                            <li><strong>Dark/Light Mode</strong> - Study comfortably anytime</li>
+                            <li><strong>Mobile Responsive</strong> - Learn on any device</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>📚 Study Coverage</h2>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Topics Covered</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Day 1</strong></td>
+                                <td>PMP Overview, Exam Structure, Agile Fundamentals</td>
+                                <td><span style="color: var(--success);">✅ Complete</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Day 2</strong></td>
+                                <td>Scrum Framework, Roles, Events, Artifacts</td>
+                                <td><span style="color: var(--success);">✅ Complete</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Day 3</strong></td>
+                                <td>Sprint Planning, Estimation, Velocity</td>
+                                <td><span style="color: var(--success);">✅ Complete</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Day 4</strong></td>
+                                <td>User Stories, Backlog Management, DoD</td>
+                                <td><span style="color: var(--success);">✅ Complete</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Day 5</strong></td>
+                                <td>Agile Metrics, Burndown Charts, EVM</td>
+                                <td><span style="color: var(--success);">✅ Complete</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Day 6</strong></td>
+                                <td>Kanban, WIP Limits, Flow Optimization</td>
+                                <td><span style="color: var(--success);">✅ Complete</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Day 7</strong></td>
+                                <td>Lean Principles, Waste Elimination, Hybrid</td>
+                                <td><span style="color: var(--success);">✅ Complete</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Day 8</strong></td>
+                                <td>Integration Management, Project Charter, Selection</td>
+                                <td><span style="color: var(--success);">✅ Complete</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Day 9</strong></td>
+                                <td>Project Planning (18 Sub-Plans), Direct & Manage Work</td>
+                                <td><span style="color: var(--success);">✅ Complete</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Exam Success Tips</h3>
+                        <ul>
+                            <li><strong>Think Like a Servant Leader</strong> - Always choose answers that empower and facilitate</li>
+                            <li><strong>Read Questions Carefully</strong> - Look for keywords like "adaptive," "iterative," "predictive"</li>
+                            <li><strong>Practice Daily</strong> - Use the quiz feature to reinforce your learning</li>
+                            <li><strong>Understand, Don't Memorize</strong> - Focus on concepts and principles</li>
+                            <li><strong>Review Bookmarks</strong> - Revisit difficult topics regularly</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>🚀 Getting Started</h2>
+                    <ol>
+                        <li><strong>Start with Overview</strong> - Understand the exam structure and format</li>
+                        <li><strong>Study Day by Day</strong> - Work through each day's material systematically</li>
+                        <li><strong>Use Cheat Sheets</strong> - Quick reference for formulas and key concepts</li>
+                        <li><strong>Practice Quizzes</strong> - Test your knowledge regularly</li>
+                        <li><strong>Bookmark Important Items</strong> - Mark topics that need more review</li>
+                        <li><strong>Track Your Progress</strong> - Monitor your stats and adjust your study plan</li>
+                    </ol>
+                    
+                    <div class="success-box">
+                        <h3><span>🎉</span> You're on the Right Track!</h3>
+                        <p>
+                            With 8 comprehensive study days completed, you're well-prepared for the PMP exam. 
+                            Continue practicing, reviewing key concepts, and you'll be ready to pass with confidence!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Days 1-6 Section (Summary) -->
+        <div id="days1-6" class="content-section">
+            <div class="study-card">
+                <div class="study-card-header">
+                    <h1 class="study-card-title">
+                        <span>📚</span>
+                        Days 1-6: Foundation Topics
+                    </h1>
+                    <button class="bookmark-btn" onclick="toggleBookmark('days1-6')">⭐</button>
+                </div>
+                <div class="study-content">
+                    <p style="font-size: 1.125rem; margin-bottom: 2rem;">
+                        These foundational days cover the core PMP concepts, Agile methodologies, and Scrum framework that form the basis of your certification knowledge.
+                    </p>
+                    
+                    <div class="key-points">
+                        <h3><span>🎯</span> Quick Summary of Days 1-6</h3>
+                        <p>Click on each day below to expand detailed notes:</p>
+                    </div>
+                    
+                    <h2>Day 1: PMP Exam Overview & Agile Fundamentals</h2>
+                    <ul>
+                        <li><strong>PMP Exam Structure:</strong> 180 questions, 230 minutes</li>
+                        <li><strong>Domain Distribution:</strong> People (42%), Process (50%), Business Environment (8%)</li>
+                        <li><strong>Agile Manifesto:</strong> 4 values and 12 principles</li>
+                        <li><strong>Question Types:</strong> Situational, definition-based, calculations</li>
+                    </ul>
+                    
+                    <h2>Day 2: Scrum Framework Deep Dive</h2>
+                    <ul>
+                        <li><strong>Scrum Roles:</strong> Product Owner, Scrum Master, Development Team</li>
+                        <li><strong>Scrum Events:</strong> Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective</li>
+                        <li><strong>Scrum Artifacts:</strong> Product Backlog, Sprint Backlog, Increment</li>
+                        <li><strong>Time-boxes:</strong> 2-week sprint = 4h planning, 2h review, 1.5h retro</li>
+                    </ul>
+                    
+                    <h2>Day 3: Sprint Planning & Estimation</h2>
+                    <ul>
+                        <li><strong>Story Points:</strong> Fibonacci sequence (1, 2, 3, 5, 8, 13...)</li>
+                        <li><strong>Planning Poker:</strong> Consensus-based estimation technique</li>
+                        <li><strong>Velocity:</strong> Average story points completed per sprint</li>
+                        <li><strong>Sprint Goal:</strong> Clear objective for each sprint</li>
+                    </ul>
+                    
+                    <h2>Day 4: User Stories & Backlog Management</h2>
+                    <ul>
+                        <li><strong>INVEST Criteria:</strong> Independent, Negotiable, Valuable, Estimable, Small, Testable</li>
+                        <li><strong>User Story Format:</strong> As a [role], I want [feature], so that [benefit]</li>
+                        <li><strong>Definition of Done:</strong> Shared understanding of completion</li>
+                        <li><strong>Backlog Refinement:</strong> Continuous grooming and prioritization</li>
+                    </ul>
+                    
+                    <h2>Day 5: Agile Metrics & Earned Value Management</h2>
+                    <ul>
+                        <li><strong>Burndown Chart:</strong> Tracks remaining work over time</li>
+                        <li><strong>EVM Formulas:</strong> CPI, SPI, EAC, ETC, VAC</li>
+                        <li><strong>Lead Time:</strong> Time from request to delivery</li>
+                        <li><strong>Cycle Time:</strong> Time from start to finish</li>
+                    </ul>
+                    
+                    <h2>Day 6: Kanban Methodology</h2>
+                    <ul>
+                        <li><strong>Kanban Principles:</strong> Visualize workflow, limit WIP, manage flow</li>
+                        <li><strong>WIP Limits:</strong> Maximum items in each column</li>
+                        <li><strong>Pull System:</strong> Work pulled when capacity available</li>
+                        <li><strong>Cumulative Flow Diagram:</strong> Visualize work distribution</li>
+                    </ul>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Key Takeaways from Days 1-6</h3>
+                        <ul>
+                            <li>Master the Agile Manifesto values and principles</li>
+                            <li>Understand Scrum roles, events, and artifacts thoroughly</li>
+                            <li>Practice EVM calculations until they're second nature</li>
+                            <li>Know the difference between Scrum and Kanban</li>
+                            <li>Memorize time-box durations for different sprint lengths</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 7 Section -->
+        <div id="day7" class="content-section">
+            <div class="study-card">
+                <div class="study-card-header">
+                    <h1 class="study-card-title">
+                        <span class="day-badge">Day 7</span>
+                        Lean Principles & Waste Elimination
+                    </h1>
+                    <button class="bookmark-btn" onclick="toggleBookmark('day7')">⭐</button>
+                </div>
+                <div class="study-content">
+                    <p style="font-size: 1.125rem; margin-bottom: 2rem;">
+                        Lean methodology focuses on maximizing value by eliminating waste and optimizing processes. 
+                        This approach is crucial for PMP exam success and real-world project management.
+                    </p>
+                    
+                    <div class="key-points">
+                        <h3><span>🎯</span> Core Lean Principle</h3>
+                        <p><strong>Lean = Eliminate anything that doesn't add value + Keep what's valuable</strong></p>
+                        <p>Every time you see "Lean," think: <span class="highlight">Remove waste, maximize value</span></p>
+                    </div>
+                    
+                    <h2>🗑️ The 7 Types of Waste (Muda)</h2>
+                    <p>These are critical for the PMP exam. Know them cold!</p>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Waste Type</th>
+                                <th>Definition</th>
+                                <th>Examples</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1. Partially Done Work</strong></td>
+                                <td>Incomplete features that can't be used</td>
+                                <td>Code waiting for testing, specs waiting for development</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2. Extra Processes</strong></td>
+                                <td>Unnecessary documentation or steps</td>
+                                <td>Excessive meetings, redundant approvals, over-documentation</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3. Extra Features</strong></td>
+                                <td>Building more than customer requested</td>
+                                <td>Gold plating - adding features customer didn't ask for</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4. Task Switching</strong></td>
+                                <td>Constantly changing between tasks</td>
+                                <td>Multitasking, context switching, interruptions</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5. Waiting</strong></td>
+                                <td>Idle time, delays, bottlenecks</td>
+                                <td>Waiting for approvals, dependencies, resources</td>
+                            </tr>
+                            <tr>
+                                <td><strong>6. Motion</strong></td>
+                                <td>Unnecessary movement of people/information</td>
+                                <td>Excessive handoffs, poor workspace layout</td>
+                            </tr>
+                            <tr>
+                                <td><strong>7. Defects</strong></td>
+                                <td>Errors requiring rework</td>
+                                <td>Bugs, quality issues, miscommunication</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="warning">
+                        <h3><span>⚠️</span> Critical Exam Distinction</h3>
+                        <h3>Gold Plating vs. Scope Creep</h3>
+                        
+                        <p><strong>Gold Plating:</strong></p>
+                        <ul>
+                            <li>Project team <strong>voluntarily</strong> adds extra features</li>
+                            <li>Customer <strong>did NOT request</strong> these features</li>
+                            <li>Done to "impress" or "delight" customer</li>
+                            <li><strong>Example:</strong> Customer wants cardboard ceiling, you install expensive gypsum</li>
+                            <li><strong>PMI View:</strong> ❌ BAD - Can cause cost overruns and delays</li>
+                        </ul>
+                        
+                        <p><strong>Scope Creep:</strong></p>
+                        <ul>
+                            <li><strong>Uncontrolled</strong> expansion of project scope</li>
+                            <li>Changes made <strong>without formal change control</strong></li>
+                            <li>Unauthorized additions to requirements</li>
+                            <li>Stakeholders keep changing requirements informally</li>
+                            <li><strong>Result:</strong> Missed deadlines, cost overruns, increased risk</li>
+                        </ul>
+                        
+                        <p><strong>Key Difference:</strong> Gold plating is giving extras; scope creep is accepting unauthorized changes</p>
+                    </div>
+                    
+                    <h2>🚫 Task Switching: The Hidden Productivity Killer</h2>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Why Task Switching is Waste</h3>
+                        <ul>
+                            <li><strong>Context Switching Cost:</strong> Takes 15-30 minutes to refocus after interruption</li>
+                            <li><strong>Quality Suffers:</strong> More errors when multitasking</li>
+                            <li><strong>Productivity Drop:</strong> Up to 40% productivity loss</li>
+                            <li><strong>Increased Stress:</strong> Mental fatigue from constant switching</li>
+                        </ul>
+                        
+                        <p><strong>Lean Solution:</strong> Focus on completing one task before starting another (single-piece flow)</p>
+                    </div>
+                    
+                    <h2>🔄 Hybrid Approaches</h2>
+                    <p>Day 7 also introduced combining Agile and Predictive methodologies:</p>
+                    
+                    <ul>
+                        <li><strong>Predictive-Agile Hybrid:</strong> Use waterfall for planning, agile for execution</li>
+                        <li><strong>Use Cases:</strong> Regulated industries, fixed budgets with flexible scope</li>
+                        <li><strong>Benefits:</strong> Combines structure with flexibility</li>
+                        <li><strong>Challenges:</strong> Requires careful integration of both approaches</li>
+                    </ul>
+                    
+                    <div class="key-points">
+                        <h3><span>📝</span> Exam Focus Areas</h3>
+                        <ul>
+                            <li>Memorize all 7 types of waste</li>
+                            <li>Clearly distinguish gold plating from scope creep</li>
+                            <li>Understand why Lean eliminates waste</li>
+                            <li>Know when to use hybrid approaches</li>
+                            <li>Recognize task switching as a major waste</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>🎯 Lean in Action: Real-World Examples</h2>
+                    
+                    <div class="success-box">
+                        <h3><span>✅</span> Lean Success Example</h3>
+                        <p><strong>Scenario:</strong> Software development team struggling with delays</p>
+                        <p><strong>Lean Analysis:</strong></p>
+                        <ul>
+                            <li>Identified waste: Excessive documentation (extra processes)</li>
+                            <li>Identified waste: Features waiting for testing (partially done work)</li>
+                            <li>Identified waste: Team members juggling 5+ tasks (task switching)</li>
+                        </ul>
+                        <p><strong>Lean Solution:</strong></p>
+                        <ul>
+                            <li>Reduced documentation to "just enough"</li>
+                            <li>Implemented continuous integration/testing</li>
+                            <li>Limited WIP to 2-3 items per person</li>
+                        </ul>
+                        <p><strong>Result:</strong> 40% faster delivery, 50% fewer defects</p>
+                    </div>
+                    
+                    <h2>📊 Lean Metrics</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Purpose</th>
+                                <th>Target</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Lead Time</strong></td>
+                                <td>Total time from request to delivery</td>
+                                <td>Minimize</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cycle Time</strong></td>
+                                <td>Time from start to finish</td>
+                                <td>Minimize</td>
+                            </tr>
+                            <tr>
+                                <td><strong>WIP</strong></td>
+                                <td>Work in progress</td>
+                                <td>Limit & Reduce</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Throughput</strong></td>
+                                <td>Items completed per time period</td>
+                                <td>Maximize</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Day 7 Memory Aid</h3>
+                        <p><strong>Remember "P.E.E.T.W.M.D." for the 7 Wastes:</strong></p>
+                        <ul>
+                            <li><strong>P</strong>artially done work</li>
+                            <li><strong>E</strong>xtra processes</li>
+                            <li><strong>E</strong>xtra features (gold plating)</li>
+                            <li><strong>T</strong>ask switching</li>
+                            <li><strong>W</strong>aiting</li>
+                            <li><strong>M</strong>otion</li>
+                            <li><strong>D</strong>efects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 8 Section -->
+        <div id="day8" class="content-section">
+            <div class="study-card">
+                <div class="study-card-header">
+                    <h1 class="study-card-title">
+                        <span class="day-badge">Day 8</span>
+                        Project Integration Management
+                    </h1>
+                    <button class="bookmark-btn" onclick="toggleBookmark('day8')">⭐</button>
+                </div>
+                <div class="study-content">
+                    <p style="font-size: 1.125rem; margin-bottom: 2rem;">
+                        Project Integration Management is the glue that holds all project components together. 
+                        Day 8 focuses on developing the project charter, selection techniques, and understanding the project environment.
+                    </p>
+                    
+                    <div class="key-points">
+                        <h3><span>🎯</span> What is Project Integration Management?</h3>
+                        <p>
+                            Integration ensures all project components (people, processes, decisions, plans) are 
+                            <span class="highlight">interconnected</span> and the project moves forward in a <span class="highlight">unified way</span>.
+                        </p>
+                        <p><strong>Think of it as:</strong> The conductor of an orchestra - coordinating all sections to create harmony</p>
+                    </div>
+                    
+                    <h2>📜 Developing the Project Charter</h2>
+                    <p>The project charter is the <strong>formal authorization</strong> to begin the project. It's created BEFORE detailed planning.</p>
+                    
+                    <div class="exam-tip">
+                        <h3><span>📋</span> Project Charter Must Include:</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Component</th>
+                                    <th>Description</th>
+                                    <th>Exam Importance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Project Purpose</strong></td>
+                                    <td>Why the project exists</td>
+                                    <td>🔥 High</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Key Stakeholders</strong></td>
+                                    <td>Who is involved/affected</td>
+                                    <td>🔥 High</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Measurable Objectives</strong></td>
+                                    <td>What success looks like (SMART)</td>
+                                    <td>🔥🔥 Very High</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>High-Level Requirements</strong></td>
+                                    <td>What needs to be delivered</td>
+                                    <td>🔥 High</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Pre-approved Budget</strong></td>
+                                    <td>Financial resources allocated</td>
+                                    <td>🔥 High</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>High-Level Risks</strong></td>
+                                    <td>Known threats and opportunities</td>
+                                    <td>🔥🔥 Very High</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Milestone Schedule</strong></td>
+                                    <td>Key dates and deliverables</td>
+                                    <td>🔥 High</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Assigned PM</strong></td>
+                                    <td>Who will manage the project</td>
+                                    <td>🔥🔥🔥 Critical</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sponsor Authority</strong></td>
+                                    <td>PM's level of authority</td>
+                                    <td>🔥🔥 Very High</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sponsor Sign-off</strong></td>
+                                    <td>Formal authorization signature</td>
+                                    <td>🔥🔥🔥 Critical</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Exit Criteria</strong></td>
+                                    <td>When project can close</td>
+                                    <td>🔥 High</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="warning">
+                        <h3><span>⚠️</span> Common Charter Mistakes on Exam</h3>
+                        <ul>
+                            <li>❌ Creating charter AFTER detailed planning (wrong order!)</li>
+                            <li>❌ Having team members instead of sponsor sign charter</li>
+                            <li>❌ Including detailed WBS in charter (too detailed)</li>
+                            <li>❌ Starting work before charter is signed</li>
+                            <li>✅ Charter = High-level, authorizes PM, signed by sponsor</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>💰 Project Selection Techniques</h2>
+                    <p>Organizations must decide which projects to pursue. Here are the key financial techniques:</p>
+                    
+                    <h3>1. Benefit-Cost Ratio (BCR)</h3>
+                    <div class="key-points">
+                        <p><strong>Formula:</strong> <code>BCR = Total Benefits / Total Costs</code></p>
+                        <p><strong>Decision Rule:</strong> BCR > 1 = Project is worthwhile</p>
+                        <p><strong>Example:</strong> Benefits = $500K, Costs = $300K → BCR = 1.67 ✅</p>
+                        <p><strong>When to use:</strong> Quick evaluation of project viability</p>
+                    </div>
+                    
+                    <h3>2. Payback Period</h3>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Time needed to recover initial investment</p>
+                        <p><strong>Formula:</strong> <code>Payback Period = Initial Investment / Annual Cash Flow</code></p>
+                        <p><strong>Decision Rule:</strong> Shorter payback = Better project</p>
+                        <p><strong>Example:</strong> Investment = $100K, Annual return = $25K → Payback = 4 years</p>
+                        <p><strong>Limitation:</strong> Doesn't consider time value of money</p>
+                    </div>
+                    
+                    <h3>3. Return on Investment (ROI)</h3>
+                    <div class="key-points">
+                        <p><strong>Formula:</strong> <code>ROI = (Net Profit / Investment) × 100%</code></p>
+                        <p><strong>Decision Rule:</strong> Higher ROI = Better project</p>
+                        <p><strong>Example:</strong> Investment = $200K, Net Profit = $80K → ROI = 40%</p>
+                        <p><strong>When to use:</strong> Comparing profitability across projects</p>
+                    </div>
+                    
+                    <h3>4. Net Present Value (NPV) 🔥🔥🔥</h3>
+                    <div class="exam-tip">
+                        <h3><span>💡</span> NPV is CRITICAL for the exam!</h3>
+                        <p><strong>Definition:</strong> Present value of future cash flows minus initial investment</p>
+                        <p><strong>Formula:</strong> <code>NPV = PV of Benefits - Initial Investment</code></p>
+                        <p><strong>Decision Rule:</strong></p>
+                        <ul>
+                            <li>NPV > 0 = Project adds value ✅</li>
+                            <li>NPV = 0 = Project breaks even</li>
+                            <li>NPV < 0 = Project loses money ❌</li>
+                            <li><strong>Choose project with HIGHEST NPV</strong></li>
+                        </ul>
+                        <p><strong>Why it matters:</strong> Accounts for time value of money (money today worth more than tomorrow)</p>
+                    </div>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Project</th>
+                                <th>NPV</th>
+                                <th>Decision</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Project A</td>
+                                <td>$150,000</td>
+                                <td>✅ Good</td>
+                            </tr>
+                            <tr>
+                                <td>Project B</td>
+                                <td>$250,000</td>
+                                <td>✅✅ Best Choice!</td>
+                            </tr>
+                            <tr>
+                                <td>Project C</td>
+                                <td>-$50,000</td>
+                                <td>❌ Reject</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h3>5. Internal Rate of Return (IRR)</h3>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Discount rate that makes NPV = 0</p>
+                        <p><strong>Decision Rule:</strong> Higher IRR = Better project</p>
+                        <p><strong>Comparison:</strong> IRR should exceed organization's required rate of return</p>
+                        <p><strong>Example:</strong> If IRR = 15% and required return = 10%, project is good ✅</p>
+                    </div>
+                    
+                    <h3>6. Opportunity Cost</h3>
+                    <div class="warning">
+                        <h3><span>⚠️</span> Critical Concept for Exam</h3>
+                        <p><strong>Definition:</strong> Value of the project you DIDN'T choose</p>
+                        <p><strong>Example:</strong></p>
+                        <ul>
+                            <li>Project A NPV = $300K (chosen)</li>
+                            <li>Project B NPV = $200K (not chosen)</li>
+                            <li><strong>Opportunity Cost = $200K</strong> (what you gave up)</li>
+                        </ul>
+                        <p><strong>Exam Tip:</strong> Opportunity cost = Value of NEXT BEST alternative</p>
+                    </div>
+                    
+                    <h2>🌍 Enterprise Environmental Factors (EEFs)</h2>
+                    <p>External and internal conditions that influence the project but are <strong>outside the project team's control</strong>:</p>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Examples</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>External EEFs</strong></td>
+                                <td>
+                                    • Market conditions<br>
+                                    • Government regulations<br>
+                                    • Industry standards<br>
+                                    • Economic climate<br>
+                                    • Political environment
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Internal EEFs</strong></td>
+                                <td>
+                                    • Organizational culture<br>
+                                    • Infrastructure<br>
+                                    • Resource availability<br>
+                                    • Risk tolerance<br>
+                                    • Geographic distribution
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h2>📚 Organizational Process Assets (OPAs)</h2>
+                    <p>Organizational knowledge and resources that <strong>can be used</strong> by the project:</p>
+                    
+                    <ul>
+                        <li><strong>Processes & Procedures:</strong> Templates, checklists, guidelines</li>
+                        <li><strong>Historical Information:</strong> Lessons learned, past project data</li>
+                        <li><strong>Knowledge Repositories:</strong> Project files, databases</li>
+                        <li><strong>Policies:</strong> Quality, HR, procurement policies</li>
+                    </ul>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> EEF vs OPA - Exam Distinction</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Factor</th>
+                                    <th>EEF</th>
+                                    <th>OPA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Control</strong></td>
+                                    <td>❌ Outside team control</td>
+                                    <td>✅ Team can use/update</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Examples</strong></td>
+                                    <td>Weather, regulations, culture</td>
+                                    <td>Templates, lessons learned</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Project Impact</strong></td>
+                                    <td>Must adapt TO them</td>
+                                    <td>Leverage/improve them</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h2>🎯 Integration Management Insights</h2>
+                    
+                    <div class="success-box">
+                        <h3><span>✅</span> Key Takeaways from Day 8</h3>
+                        <ul>
+                            <li><strong>PM Responsibility:</strong> Ensure integration through charter development and coordination</li>
+                            <li><strong>Selection Techniques:</strong> Use multiple methods (financial + non-financial) for best decisions</li>
+                            <li><strong>NPV is King:</strong> Always choose highest NPV when comparing projects</li>
+                            <li><strong>Charter = Authorization:</strong> Must be signed by sponsor before work begins</li>
+                            <li><strong>Environment Matters:</strong> Consider both EEFs and OPAs in planning</li>
+                            <li><strong>Technical Input:</strong> Engineers/experts involved from project start</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>📝 Day 8 Practice Scenario</h2>
+                    
+                    <div class="key-points">
+                        <h3><span>📖</span> Real-World Application</h3>
+                        <p><strong>Scenario:</strong> Water access project in informal settlement</p>
+                        
+                        <p><strong>Integration Management Applied:</strong></p>
+                        <ul>
+                            <li><strong>Charter Development:</strong> Identified urgent need, population impact, key stakeholders</li>
+                            <li><strong>Selection Criteria:</strong> High population density, critical infrastructure gap</li>
+                            <li><strong>Technical Involvement:</strong> Engineers from project start for scoping and budgeting</li>
+                            <li><strong>EEF Consideration:</strong> Informal settlement conditions, government regulations</li>
+                            <li><strong>OPA Usage:</strong> Past project templates, lessons from similar projects</li>
+                        </ul>
+                        
+                        <p><strong>Result:</strong> Project prioritized and chartered with full stakeholder buy-in</p>
+                    </div>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Day 8 Memory Aids</h3>
+                        <p><strong>Remember "SOME RISKS" for Charter Components:</strong></p>
+                        <ul>
+                            <li><strong>S</strong>takeholders (key)</li>
+                            <li><strong>O</strong>bjectives (measurable)</li>
+                            <li><strong>M</strong>ilestones</li>
+                            <li><strong>E</strong>xit criteria</li>
+                            <li><strong>R</strong>equirements (high-level)</li>
+                            <li><strong>I</strong>nvestment (budget)</li>
+                            <li><strong>S</strong>ponsor sign-off</li>
+                            <li><strong>K</strong>ey PM (assigned)</li>
+                            <li><strong>S</strong>cope (purpose)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 9 Section -->
+        <div id="day9" class="content-section">
+            <div class="study-card">
+                <div class="study-card-header">
+                    <h1 class="study-card-title">
+                        <span class="day-badge">Day 9</span>
+                        Project Planning & Direct Management
+                    </h1>
+                    <button class="bookmark-btn" onclick="toggleBookmark('day9')">⭐</button>
+                </div>
+                <div class="study-content">
+                    <p style="font-size: 1.125rem; margin-bottom: 2rem;">
+                        Day 9 dives deep into the tools for charter development, the comprehensive project management plan 
+                        with its 18 sub-plans, and how to direct and manage project work effectively. This is critical 
+                        content that connects planning to execution.
+                    </p>
+                    
+                    <div class="key-points">
+                        <h3><span>🎯</span> Day 9 Core Topics</h3>
+                        <ul>
+                            <li><strong>Tools for Developing Project Charter</strong> - Expert judgment, meetings, data gathering</li>
+                            <li><strong>Project Management Plan</strong> - 18 sub-plans (9-4-3-2 mnemonic)</li>
+                            <li><strong>Kickoff Meetings</strong> - Timing for large vs small projects</li>
+                            <li><strong>Direct & Manage Project Work</strong> - Day-to-day execution</li>
+                            <li><strong>Work Performance</strong> - Data vs Information vs Reports</li>
+                            <li><strong>Change Requests</strong> - Four types and when to use them</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>🛠️ Tools & Techniques for Developing Project Charter</h2>
+                    <p>Creating the project charter requires specific tools and techniques to gather the right information:</p>
+                    
+                    <h3>1. Expert Judgment 🔥🔥🔥</h3>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Knowledge and experience provided by people who have expertise in preparing charters, 
+                        the project industry, or organizational processes.</p>
+                        
+                        <p><strong>Why It's Critical:</strong></p>
+                        <ul>
+                            <li>Project sponsors may not have technical knowledge of the industry</li>
+                            <li>Charter components (objectives, requirements, metrics) need specialized input</li>
+                            <li>Design and implementation teams provide essential insights</li>
+                            <li>Business analysts help define broad requirements</li>
+                        </ul>
+                        
+                        <p><strong>Sources of Expert Judgment:</strong></p>
+                        <ul>
+                            <li>Business analysts for requirements definition</li>
+                            <li>Technical experts from design/implementation teams</li>
+                            <li>Industry specialists with domain knowledge</li>
+                            <li>Organizational leaders with process knowledge</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>2. Meetings</h3>
+                    <p>Meetings are essential for:</p>
+                    <ul>
+                        <li><strong>Gathering expert judgment</strong> - Experts are met in the context of meetings</li>
+                        <li><strong>Data gathering</strong> - Information not found in business documents</li>
+                        <li><strong>Collaboration</strong> - Team alignment and consensus building</li>
+                    </ul>
+                    
+                    <h3>3. Data Gathering</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Technique</th>
+                                <th>Description</th>
+                                <th>Best Use</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Brainstorming</strong></td>
+                                <td>Team members collectively generate ideas</td>
+                                <td>Charter components needing creative input</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Focus Groups</strong></td>
+                                <td>Specialized groups discuss specific areas</td>
+                                <td>Different sections of project charter</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Interviews</strong></td>
+                                <td>One-on-one discussions with experts</td>
+                                <td>Gathering specific technical knowledge</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Focus Groups vs Interviews</h3>
+                        <ul>
+                            <li><strong>Focus Groups:</strong> More conversational, less formal than interviews</li>
+                            <li><strong>Focus Groups:</strong> Allow document analysis and collective opinions</li>
+                            <li><strong>Focus Groups:</strong> Multiple perspectives on same topic</li>
+                            <li><strong>Interviews:</strong> More structured, individual insights</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>4. Interpersonal and Team Skills</h3>
+                    <p>Critical skills for working with experts and stakeholders:</p>
+                    
+                    <ul>
+                        <li><strong>Conflict Management</strong> - People have differing opinions; bring them to alignment</li>
+                        <li><strong>Facilitation</strong> - Leading meetings effectively</li>
+                        <li><strong>Meeting Management Techniques:</strong>
+                            <ul>
+                                <li>Prepare agenda in advance</li>
+                                <li>Ensure right people are represented</li>
+                                <li>Send timely invites</li>
+                                <li>Prepare and share minutes</li>
+                                <li>Document follow-up action items</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h2>📋 Developing the Project Management Plan</h2>
+                    <p>The project management plan is a <strong>comprehensive document</strong> that defines the basis of all work 
+                    to be done and outlines how the work will be performed.</p>
+                    
+                    <div class="key-points">
+                        <h3><span>🎯</span> Charter vs Plan</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Aspect</th>
+                                    <th>Project Charter</th>
+                                    <th>Project Plan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Detail Level</strong></td>
+                                    <td>Summary information</td>
+                                    <td>Detailed, comprehensive</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Purpose</strong></td>
+                                    <td>Authorizes project</td>
+                                    <td>Defines how work will be done</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Structure</strong></td>
+                                    <td>Single document</td>
+                                    <td>Multiple integrated sub-plans</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Timing</strong></td>
+                                    <td>Before planning</td>
+                                    <td>After charter, before execution</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Content</strong></td>
+                                    <td>Basic information</td>
+                                    <td>Elaborates charter details</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h2>📊 The 18 Sub-Plans (9-4-3-2 Mnemonic) 🔥🔥🔥</h2>
+                    <p>The project management plan consists of 18 sub-plans organized by the <strong>9-4-3-2 mnemonic</strong>:</p>
+                    
+                    <h3>9 Area Plans (Knowledge Area Plans)</h3>
+                    <div class="key-points">
+                        <p><strong>One plan for each knowledge area EXCEPT Integration Management:</strong></p>
+                        <ol>
+                            <li><strong>Scope Management Plan</strong> - How to define and control scope</li>
+                            <li><strong>Schedule Management Plan</strong> - How to develop and control schedule</li>
+                            <li><strong>Cost Management Plan</strong> - How to plan and control costs</li>
+                            <li><strong>Quality Management Plan</strong> - Quality standards, metrics, and tools</li>
+                            <li><strong>Resource Management Plan</strong> - How to acquire and manage resources</li>
+                            <li><strong>Communications Management Plan</strong> - What, when, how to communicate</li>
+                            <li><strong>Risk Management Plan</strong> - How to identify and manage risks</li>
+                            <li><strong>Procurement Management Plan</strong> - Contract types, make/buy decisions</li>
+                            <li><strong>Stakeholder Engagement Plan</strong> - How to engage stakeholders</li>
+                        </ol>
+                    </div>
+                    
+                    <h3>4 Baselines (Approved for Control)</h3>
+                    <div class="warning">
+                        <h3><span>⚠️</span> Critical Exam Concept: Baselines</h3>
+                        <p><strong>Baselining in PMI = Approving for Control</strong></p>
+                        
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Baseline</th>
+                                    <th>What It Is</th>
+                                    <th>Measured Against</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Schedule Baseline</strong></td>
+                                    <td>Approved project schedule</td>
+                                    <td>Actual progress</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cost Baseline</strong></td>
+                                    <td>Approved project budget</td>
+                                    <td>Actual costs</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Scope Baseline</strong></td>
+                                    <td>Approved project scope</td>
+                                    <td>Actual deliverables</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Performance Measurement Baseline</strong></td>
+                                    <td>Technique to measure project health</td>
+                                    <td>Schedule, cost, scope performance</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h3>3 Scope-Related Plans</h3>
+                    <ol>
+                        <li><strong>Requirements Management Plan</strong>
+                            <ul>
+                                <li>Process for gathering requirements</li>
+                                <li>Documenting requirements</li>
+                                <li>Making changes to requirements</li>
+                            </ul>
+                        </li>
+                        <li><strong>Configuration Management Plan</strong>
+                            <ul>
+                                <li>Making changes to project components as result of one change</li>
+                                <li>Assessing impact of changes</li>
+                                <li>Updating all affected configurable areas</li>
+                            </ul>
+                        </li>
+                        <li><strong>Change Management Plan</strong> ⚠️
+                            <ul>
+                                <li><strong>NOT about organizational change</strong> (transition management)</li>
+                                <li><strong>IS about change control</strong> - scope, cost, schedule changes</li>
+                                <li>Process from proposal to implementation</li>
+                                <li>Managing variations in the project</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    
+                    <div class="warning">
+                        <h3><span>⚠️</span> Change Management: Two Meanings</h3>
+                        <p><strong>Organizational Change Management (NOT in PMP scope):</strong></p>
+                        <ul>
+                            <li>Managing transition from current to future state</li>
+                            <li>Changing organizational culture</li>
+                            <li>Getting people to adopt project changes</li>
+                        </ul>
+                        
+                        <p><strong>Project Change Management (IN PMP scope):</strong></p>
+                        <ul>
+                            <li>Change control for scope, cost, schedule</li>
+                            <li>Managing change requests / variations</li>
+                            <li>Guidelines from proposal to implementation</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>2 Lifecycle Plans</h3>
+                    <ol>
+                        <li><strong>Project Life Cycle Description</strong>
+                            <ul>
+                                <li>Listing of project phases</li>
+                                <li>Description of each phase</li>
+                                <li>Overview of project flow from start to end</li>
+                                <li>Especially important for waterfall projects</li>
+                            </ul>
+                        </li>
+                        <li><strong>Development Approach</strong>
+                            <ul>
+                                <li>Method to evolve product from start to end</li>
+                                <li>Examples: Waterfall, Agile, Hybrid</li>
+                                <li>Explains how product will be delivered</li>
+                                <li>Framework description (e.g., "Scrum with 2-week sprints")</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    
+                    <h2>🎯 Tailoring the Project Plan</h2>
+                    <div class="key-points">
+                        <h3><span>✨</span> Tailoring Concept</h3>
+                        <p><strong>PMI allows you to include only plans important for YOUR project!</strong></p>
+                        <ul>
+                            <li>Don't have to include all 18 plans</li>
+                            <li>Don't have to include everything defined in each plan</li>
+                            <li>Adjust depth and breadth based on:</li>
+                            <ul>
+                                <li>Project size</li>
+                                <li>Project scope</li>
+                                <li>Project complexity</li>
+                            </ul>
+                            <li><strong>Only include what's important for your specific project</strong></li>
+                        </ul>
+                    </div>
+                    
+                    <h2>🎪 Kickoff Meetings</h2>
+                    <p>Kickoff meetings communicate objectives, gain commitment, and explain roles. <strong>Timing varies by project size:</strong></p>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Project Type</th>
+                                <th>Kickoff Timing</th>
+                                <th>Rationale</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Large/Complex Projects</strong></td>
+                                <td><strong>AFTER</strong> creating project plan</td>
+                                <td>
+                                    • Use small team for planning<br>
+                                    • Large teams make planning inefficient<br>
+                                    • Planning team solicits input from larger team<br>
+                                    • Once plan complete, engage all stakeholders
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Small Projects</strong></td>
+                                <td><strong>BEFORE</strong> planning (after charter)</td>
+                                <td>
+                                    • One team does planning AND execution<br>
+                                    • Small teams can plan efficiently together<br>
+                                    • No harm in engaging everyone early
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Kickoff Meeting Purpose</h3>
+                        <p>Regardless of timing, kickoff meetings serve to:</p>
+                        <ul>
+                            <li>Communicate project objectives</li>
+                            <li>Gain commitment from the team</li>
+                            <li>Explain roles and responsibilities</li>
+                            <li>Align stakeholders on project approach</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>🎯 Agile Projects: Planning Differences</h2>
+                    <div class="key-points">
+                        <h3><span>📝</span> Agile Project Plans</h3>
+                        <p><strong>Agile projects typically do NOT have all 18 plans!</strong></p>
+                        
+                        <p><strong>What Agile Projects DO have:</strong></p>
+                        <ul>
+                            <li><strong>Development Approach</strong> - Framework description (e.g., Scrum)</li>
+                            <li><strong>Schedule Baseline</strong> - Known at start (ballpark figure)</li>
+                            <li><strong>Cost Baseline</strong> - Budget ceiling</li>
+                            <li><strong>Project Charter</strong> - Defines boundaries, user stories</li>
+                        </ul>
+                        
+                        <p><strong>What Agile Projects DON'T have:</strong></p>
+                        <ul>
+                            <li><strong>Scope Baseline</strong> - Scope is dynamic!</li>
+                            <li><strong>Most area plans</strong> - Due to dynamic scope</li>
+                            <li><strong>Detailed schedule/budget</strong> - Can't plan with dynamic scope</li>
+                        </ul>
+                        
+                        <p><strong>Instead of elaborate plans:</strong> Agile depends on project charter and product backlog to provide boundaries</p>
+                    </div>
+                    
+                    <h2>⚙️ Direct and Manage Project Work</h2>
+                    <p>Once you have the plan, you have the basis for doing the work. <strong>Direct and Manage Project Work</strong> is 
+                    the day-to-day execution of the project.</p>
+                    
+                    <div class="key-points">
+                        <h3><span>🎯</span> What It Means</h3>
+                        <p><strong>A process of leading and performing work defined in the project management plan and implementing 
+                        approved changes to achieve project objectives.</strong></p>
+                        
+                        <p>This includes:</p>
+                        <ul>
+                            <li>Leading people as they do the work</li>
+                            <li>Performing the actual work</li>
+                            <li>Implementing approved changes</li>
+                            <li>Producing deliverables</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>📦 Deliverables: Project vs Product</h2>
+                    <div class="warning">
+                        <h3><span>⚠️</span> Critical Distinction: Two Types of Deliverables</h3>
+                        <p><strong>Always think about two dimensions:</strong></p>
+                        
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Project Management Deliverables</th>
+                                    <th>Product Deliverables</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        • Reports<br>
+                                        • Communications<br>
+                                        • Project documents<br>
+                                        • Project charter<br>
+                                        • Project management plan<br>
+                                        • Status updates
+                                    </td>
+                                    <td>
+                                        • Components of final product<br>
+                                        • Features/functions<br>
+                                        • Services provided<br>
+                                        • Results achieved<br>
+                                        • Tangible outputs<br>
+                                        • Customer-facing items
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <p><strong>Definition:</strong> A deliverable is any output, outcome, or result of a process, task, phase, or project.</p>
+                    </div>
+                    
+                    <h2>📊 Data → Information → Reports</h2>
+                    <p>Understanding the progression from data to reports is <strong>critical for the exam</strong>:</p>
+                    
+                    <h3>1. Work Performance Data (Raw)</h3>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Raw observations and measurements from the work itself.</p>
+                        <p><strong>Characteristics:</strong></p>
+                        <ul>
+                            <li>Not processed or analyzed</li>
+                            <li>Direct measurements</li>
+                            <li>Automatically generated</li>
+                        </ul>
+                        <p><strong>Examples:</strong></p>
+                        <ul>
+                            <li>Actual cost incurred</li>
+                            <li>Actual duration spent</li>
+                            <li>Number of defects found</li>
+                            <li>Percentage complete</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>2. Work Performance Information (Processed)</h3>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Result of analyzing and interpreting data.</p>
+                        <p><strong>Characteristics:</strong></p>
+                        <ul>
+                            <li>Data that has been processed</li>
+                            <li>Analyzed and interpreted</li>
+                            <li>Provides meaning</li>
+                        </ul>
+                        <p><strong>Examples:</strong></p>
+                        <ul>
+                            <li>Cost variance (actual cost vs budget)</li>
+                            <li>Schedule variance</li>
+                            <li>CPI and SPI calculations</li>
+                            <li>Trends and patterns</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>3. Work Performance Reports (Contextualized)</h3>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Data and information presented in context for decision-making.</p>
+                        <p><strong>Characteristics:</strong></p>
+                        <ul>
+                            <li>Formatted for stakeholders</li>
+                            <li>Provides context</li>
+                            <li>Enables decisions</li>
+                            <li>Stakeholder-friendly</li>
+                        </ul>
+                        <p><strong>Examples:</strong></p>
+                        <ul>
+                            <li>Status reports</li>
+                            <li>Progress dashboards</li>
+                            <li>Variance reports</li>
+                            <li>Forecasts and predictions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Exam Memory Aid</h3>
+                        <p><strong>Raw → Analyzed → Contextualized</strong></p>
+                        <ul>
+                            <li><strong>Data:</strong> "The project cost $100K" (measurement)</li>
+                            <li><strong>Information:</strong> "We're $20K over budget" (analysis)</li>
+                            <li><strong>Report:</strong> "Cost overrun requires corrective action: fast-track or extend deadline" (context for decisions)</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>🗂️ Issue Log</h2>
+                    <p>An issue log documents items of concern that need resolution in the project.</p>
+                    
+                    <div class="warning">
+                        <h3><span>⚠️</span> Issue vs Risk - Know the Difference!</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Aspect</th>
+                                    <th>Risk</th>
+                                    <th>Issue</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Timing</strong></td>
+                                    <td>Future (anticipated)</td>
+                                    <td>Present (happening now)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Certainty</strong></td>
+                                    <td>Uncertain (may or may not happen)</td>
+                                    <td>Certain (already affecting project)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Document</strong></td>
+                                    <td>Risk Register</td>
+                                    <td>Issue Log</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Action</strong></td>
+                                    <td>Risk response planning</td>
+                                    <td>Issue resolution</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <p><strong>What are Issues?</strong></p>
+                    <ul>
+                        <li>Gaps in project execution</li>
+                        <li>Current problems</li>
+                        <li>Inconsistencies discovered</li>
+                        <li>Conflicts between stakeholders</li>
+                        <li>Any item of concern requiring resolution</li>
+                    </ul>
+                    
+                    <h2>📝 Change Requests - Four Types 🔥🔥🔥</h2>
+                    <p>A change request is a <strong>formal proposal to modify any document, deliverable, or baseline</strong>.</p>
+                    
+                    <div class="key-points">
+                        <h3><span>⚠️</span> When Change Requests Are Required</h3>
+                        <p><strong>Change requests are ONLY needed when changes affect baselines:</strong></p>
+                        <ul>
+                            <li>Schedule baseline (timeline)</li>
+                            <li>Cost baseline (budget)</li>
+                            <li>Scope baseline (deliverables)</li>
+                        </ul>
+                        <p><strong>If a change has NO impact on these baselines:</strong> No change request needed - handle within team!</p>
+                    </div>
+                    
+                    <h3>1. Corrective Action</h3>
+                    <div class="exam-tip">
+                        <p><strong>Purpose:</strong> Realign project to the plan when it has gone off track</p>
+                        
+                        <p><strong>Example Scenario:</strong> Project is delayed by 5 days</p>
+                        <p><strong>Corrective Action Options:</strong></p>
+                        <ul>
+                            <li>Change request to extend deadline by 5 days</li>
+                            <li>Change request to increase budget (crash schedule with more resources)</li>
+                            <li>Change request to reduce scope (fast-track)</li>
+                        </ul>
+                        
+                        <p><strong>Another Example:</strong> Team did out-of-scope work</p>
+                        <ul>
+                            <li>Change request to accommodate scope into project</li>
+                            <li>OR reverse the work (also needs change request for budget/schedule)</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>2. Preventive Action</h3>
+                    <div class="key-points">
+                        <p><strong>Purpose:</strong> Avoid the project from going out of plan</p>
+                        <p><strong>Key Difference from Corrective:</strong></p>
+                        <ul>
+                            <li><strong>Corrective:</strong> Project already off track → fix it</li>
+                            <li><strong>Preventive:</strong> Project might go off track → prevent it</li>
+                        </ul>
+                        <p><strong>Example:</strong> Weather forecast shows delays coming → preventive action to adjust schedule now</p>
+                    </div>
+                    
+                    <h3>3. Defect Repair</h3>
+                    <p><strong>Purpose:</strong> Fix errors or quality issues</p>
+                    <ul>
+                        <li>Correct defects in deliverables</li>
+                        <li>Address quality problems</li>
+                        <li>Rework to meet requirements</li>
+                    </ul>
+                    
+                    <h3>4. Updates</h3>
+                    <p><strong>Purpose:</strong> Modify documents or plans based on new information</p>
+                    <ul>
+                        <li>Update project documents</li>
+                        <li>Revise subsidiary plans</li>
+                        <li>Adjust processes or procedures</li>
+                    </ul>
+                    
+                    <h2>🔄 Change Requests in Agile</h2>
+                    <div class="warning">
+                        <h3><span>⚠️</span> Agile Projects: Different Change Management</h3>
+                        
+                        <p><strong>For Scope:</strong></p>
+                        <ul>
+                            <li>NO change requests for scope</li>
+                            <li>No scope baseline exists (scope is dynamic)</li>
+                            <li>Just create new user stories</li>
+                            <li>Refine the product backlog</li>
+                        </ul>
+                        
+                        <p><strong>For Schedule/Cost:</strong></p>
+                        <ul>
+                            <li>Generally NO change requests mid-project</li>
+                            <li>Must work within schedule and budget ceilings</li>
+                            <li>EXCEPTION: At tail end of project</li>
+                            <ul>
+                                <li>Can extend budget/schedule ceiling</li>
+                                <li>OR initiate a new release (best practice)</li>
+                            </ul>
+                        </ul>
+                        
+                        <p><strong>Why This Makes Sense:</strong></p>
+                        <ul>
+                            <li>Can't have activity-based schedule when scope is dynamic</li>
+                            <li>Can't have detailed itemized budget when scope is dynamic</li>
+                            <li>Would constantly be updating - defeats Agile purpose</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>💻 Project Management Information System (PMIS)</h2>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Any computing tool used for conducting project tasks</p>
+                        
+                        <p><strong>Uses:</strong></p>
+                        <ul>
+                            <li>Scheduling (e.g., MS Project)</li>
+                            <li>Workflows and work authorization</li>
+                            <li>Recording and processing data</li>
+                            <li>Issue tracking</li>
+                            <li>Document management</li>
+                            <li>Communication platforms</li>
+                        </ul>
+                        
+                        <p><strong>Modern Examples:</strong></p>
+                        <ul>
+                            <li>Jira, Azure DevOps (Agile management)</li>
+                            <li>Microsoft Project, Primavera (scheduling)</li>
+                            <li>Monday.com, Asana (collaboration)</li>
+                            <li>SharePoint, Confluence (documentation)</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>📋 Inputs to Direct and Manage Project Work</h2>
+                    <p><strong>Critical inputs for executing the project:</strong></p>
+                    
+                    <ol>
+                        <li><strong>Project Management Plan</strong> 🔥🔥🔥
+                            <ul>
+                                <li>Most critical input</li>
+                                <li>Basis of all work</li>
+                                <li>Contains all guidelines</li>
+                            </ul>
+                        </li>
+                        <li><strong>Project Charter</strong>
+                            <ul>
+                                <li>Important for Agile (no detailed plan)</li>
+                                <li>Provides boundaries</li>
+                                <li>Defines high-level requirements</li>
+                            </ul>
+                        </li>
+                        <li><strong>Enterprise Environmental Factors</strong>
+                            <ul>
+                                <li>Work must comply with EEFs</li>
+                                <li>External constraints</li>
+                            </ul>
+                        </li>
+                        <li><strong>Organizational Process Assets</strong>
+                            <ul>
+                                <li>Work follows organizational guidelines</li>
+                                <li>Policies and procedures</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    
+                    <h2>📤 Outputs of Direct and Manage Project Work</h2>
+                    <ol>
+                        <li><strong>Deliverables</strong> - Main output (product and project management)</li>
+                        <li><strong>Work Performance Data</strong> - Raw measurements</li>
+                        <li><strong>Change Requests</strong> - Proposals to modify baselines</li>
+                        <li><strong>Issue Log</strong> - Document of current concerns</li>
+                    </ol>
+                    
+                    <div class="success-box">
+                        <h3><span>✅</span> Day 9 Key Takeaways</h3>
+                        <ul>
+                            <li><strong>Charter Development:</strong> Needs expert judgment, meetings, data gathering, interpersonal skills</li>
+                            <li><strong>18 Sub-Plans:</strong> Remember 9-4-3-2 mnemonic</li>
+                            <li><strong>Kickoff Timing:</strong> Large projects = after planning; Small projects = before planning</li>
+                            <li><strong>Agile Planning:</strong> Minimal plans - charter, development approach, schedule/cost baselines only</li>
+                            <li><strong>Data → Information → Reports:</strong> Know the progression</li>
+                            <li><strong>Issue vs Risk:</strong> Present vs Future</li>
+                            <li><strong>Change Requests:</strong> Only needed for baseline changes</li>
+                            <li><strong>4 Change Types:</strong> Corrective, Preventive, Defect Repair, Updates</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Day 9 Exam Focus</h3>
+                        <ul>
+                            <li>Understand when change requests are (and aren't) needed</li>
+                            <li>Know difference between corrective and preventive actions</li>
+                            <li>Memorize the 9-4-3-2 for 18 sub-plans</li>
+                            <li>Distinguish data, information, and reports</li>
+                            <li>Know issue vs risk difference cold</li>
+                            <li>Remember kickoff meeting timing for large vs small projects</li>
+                            <li>Understand Agile planning differences</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cheat Sheet Section -->
+        <div id="cheatsheet" class="content-section">
+            <div class="study-card">
+                <div class="study-card-header">
+                    <h1 class="study-card-title">
+                        <span>⚡</span>
+                        Quick Reference Cheat Sheets
+                    </h1>
+                    <button class="bookmark-btn" onclick="toggleBookmark('cheatsheet')">⭐</button>
+                </div>
+                <div class="study-content">
+                    
+                    <h2>🔢 Essential Formulas</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Formula</th>
+                                <th>Calculation</th>
+                                <th>What it Means</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>CPI</strong></td>
+                                <td>EV / AC</td>
+                                <td>Cost efficiency (>1 = under budget)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SPI</strong></td>
+                                <td>EV / PV</td>
+                                <td>Schedule efficiency (>1 = ahead)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>EAC</strong></td>
+                                <td>BAC / CPI</td>
+                                <td>New total cost estimate</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ETC</strong></td>
+                                <td>EAC - AC</td>
+                                <td>Cost to complete remaining work</td>
+                            </tr>
+                            <tr>
+                                <td><strong>VAC</strong></td>
+                                <td>BAC - EAC</td>
+                                <td>Budget variance at completion</td>
+                            </tr>
+                            <tr>
+                                <td><strong>BCR</strong></td>
+                                <td>Benefits / Costs</td>
+                                <td>Benefit-cost ratio (>1 = good)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ROI</strong></td>
+                                <td>(Profit / Cost) × 100%</td>
+                                <td>Return on investment</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h2>⏰ Scrum Time-boxes</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Sprint Length</th>
+                                <th>Planning</th>
+                                <th>Review</th>
+                                <th>Retrospective</th>
+                                <th>Daily Scrum</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1 week</td>
+                                <td>2 hours</td>
+                                <td>1 hour</td>
+                                <td>45 min</td>
+                                <td>15 min</td>
+                            </tr>
+                            <tr>
+                                <td>2 weeks</td>
+                                <td>4 hours</td>
+                                <td>2 hours</td>
+                                <td>1.5 hours</td>
+                                <td>15 min</td>
+                            </tr>
+                            <tr>
+                                <td>3 weeks</td>
+                                <td>6 hours</td>
+                                <td>3 hours</td>
+                                <td>2.25 hours</td>
+                                <td>15 min</td>
+                            </tr>
+                            <tr>
+                                <td>4 weeks</td>
+                                <td>8 hours</td>
+                                <td>4 hours</td>
+                                <td>3 hours</td>
+                                <td>15 min</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h2>📊 INVEST Criteria (User Stories)</h2>
+                    <ul>
+                        <li><strong>I</strong>ndependent - Can be developed separately</li>
+                        <li><strong>N</strong>egotiable - Details can be discussed</li>
+                        <li><strong>V</strong>aluable - Provides value to user</li>
+                        <li><strong>E</strong>stimable - Can be sized/estimated</li>
+                        <li><strong>S</strong>mall - Fits in one sprint</li>
+                        <li><strong>T</strong>estable - Can verify completion</li>
+                    </ul>
+                    
+                    <h2>🗑️ 7 Lean Wastes (PEETWMD)</h2>
+                    <ul>
+                        <li><strong>P</strong>artially done work</li>
+                        <li><strong>E</strong>xtra processes</li>
+                        <li><strong>E</strong>xtra features (gold plating)</li>
+                        <li><strong>T</strong>ask switching</li>
+                        <li><strong>W</strong>aiting</li>
+                        <li><strong>M</strong>otion</li>
+                        <li><strong>D</strong>efects</li>
+                    </ul>
+                    
+                    <h2>🎯 Agile Manifesto Values</h2>
+                    <ol>
+                        <li><strong>Individuals and interactions</strong> over processes and tools</li>
+                        <li><strong>Working software</strong> over comprehensive documentation</li>
+                        <li><strong>Customer collaboration</strong> over contract negotiation</li>
+                        <li><strong>Responding to change</strong> over following a plan</li>
+                    </ol>
+                    
+                    <h2>👥 Scrum Roles Quick Reference</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Role</th>
+                                <th>Key Responsibilities</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Product Owner</strong></td>
+                                <td>Maximizes value, manages backlog, defines priorities</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Scrum Master</strong></td>
+                                <td>Facilitates, removes impediments, coaches team</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Development Team</strong></td>
+                                <td>Self-organizing, cross-functional, delivers increment</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h2>📜 Project Charter Components (SOME RISKS)</h2>
+                    <ul>
+                        <li><strong>S</strong>takeholders (key)</li>
+                        <li><strong>O</strong>bjectives (measurable)</li>
+                        <li><strong>M</strong>ilestones</li>
+                        <li><strong>E</strong>xit criteria</li>
+                        <li><strong>R</strong>equirements (high-level)</li>
+                        <li><strong>I</strong>nvestment (budget)</li>
+                        <li><strong>S</strong>ponsor sign-off</li>
+                        <li><strong>K</strong>ey PM (assigned)</li>
+                        <li><strong>S</strong>cope (purpose)</li>
+                    </ul>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Exam Day Quick Tips</h3>
+                        <ul>
+                            <li>⏱️ ~1.3 minutes per question maximum</li>
+                            <li>🏷️ Mark and move on if unsure</li>
+                            <li>🎯 Read last sentence first (often the actual question)</li>
+                            <li>✂️ Eliminate 2 wrong answers immediately</li>
+                            <li>🤔 Choose "best" among remaining options</li>
+                            <li>🧘 Think like a servant leader</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>🔑 Keywords to Watch For</h2>
+                    
+                    <div class="key-points">
+                        <h3>Agile Keywords:</h3>
+                        <p>iterative, incremental, adaptive, changing requirements, customer collaboration, self-organizing, face-to-face</p>
+                        
+                        <h3>Predictive Keywords:</h3>
+                        <p>sequential, phases, detailed planning, baseline, change control, defined requirements, critical path</p>
+                        
+                        <h3>Servant Leader Keywords:</h3>
+                        <p>facilitate, remove impediments, empower, coach, serve, support, enable, collaborate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div id="quiz" class="content-section">
+            <div class="quiz-container">
+                <h1 style="margin-bottom: 2rem;">📝 Practice Quiz</h1>
+                
+                <div id="quizContent">
+                    <!-- Quiz will be populated by JavaScript -->
+                </div>
+                
+                <div class="quiz-actions">
+                    <button class="btn btn-primary" onclick="startQuiz()">Start New Quiz</button>
+                    <button class="btn btn-secondary" onclick="showTab('overview')">Back to Overview</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bookmarks Section -->
+        <div id="bookmarks" class="content-section">
+            <div class="study-card">
+                <div class="study-card-header">
+                    <h1 class="study-card-title">
+                        <span>⭐</span>
+                        Your Bookmarks
+                    </h1>
+                </div>
+                <div class="study-content">
+                    <p style="margin-bottom: 2rem;">
+                        Bookmark important sections by clicking the ⭐ icon. Your bookmarks are saved locally and persist across sessions.
+                    </p>
+                    
+                    <div id="bookmarksList">
+                        <p style="color: var(--text-muted); text-align: center; padding: 3rem;">
+                            No bookmarks yet. Start bookmarking important sections!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 PMP Study Hub | Created for PMP Certification Excellence</p>
+        <p style="margin-top: 0.5rem;">Good luck with your exam! 🎉</p>
+    </footer>
+
+    <script>
+        // Theme Management
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        // Tab Navigation
+        function showTab(tabName) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.closest('.nav-tab').classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Search Functionality
+        function searchContent() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            if (searchTerm.length < 2) return;
+            
+            const allContent = document.querySelectorAll('.study-content');
+            let found = false;
+            
+            allContent.forEach(content => {
+                const text = content.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    content.closest('.content-section').classList.add('active');
+                    found = true;
+                    
+                    // Highlight search term
+                    const regex = new RegExp(`(${searchTerm})`, 'gi');
+                    content.innerHTML = content.innerHTML.replace(regex, '<mark style="background: var(--accent); padding: 0.125rem 0.25rem; border-radius: 3px;">$1</mark>');
+                }
+            });
+        }
+
+        // Bookmark Management
+        let bookmarks = JSON.parse(localStorage.getItem('pmp-bookmarks')) || [];
+
+        function toggleBookmark(itemId) {
+            const index = bookmarks.indexOf(itemId);
+            
+            if (index > -1) {
+                bookmarks.splice(index, 1);
+                event.target.classList.remove('bookmarked');
+            } else {
+                bookmarks.push(itemId);
+                event.target.classList.add('bookmarked');
+            }
+            
+            localStorage.setItem('pmp-bookmarks', JSON.stringify(bookmarks));
+            updateBookmarkCount();
+            updateBookmarksList();
+        }
+
+        function updateBookmarkCount() {
+            document.getElementById('bookmarks').textContent = bookmarks.length;
+        }
+
+        function updateBookmarksList() {
+            const bookmarksList = document.getElementById('bookmarksList');
+            
+            if (bookmarks.length === 0) {
+                bookmarksList.innerHTML = `
+                    <p style="color: var(--text-muted); text-align: center; padding: 3rem;">
+                        No bookmarks yet. Start bookmarking important sections!
+                    </p>
+                `;
+                return;
+            }
+            
+            const bookmarkNames = {
+                'days1-6': 'Days 1-6: Foundation Topics',
+                'day7': 'Day 7: Lean Principles',
+                'day8': 'Day 8: Integration Management',
+                'cheatsheet': 'Cheat Sheets'
+            };
+            
+            bookmarksList.innerHTML = bookmarks.map(id => `
+                <div class="study-card" style="margin-bottom: 1rem;">
+                    <div class="study-card-header">
+                        <h3>${bookmarkNames[id] || id}</h3>
+                        <button class="btn btn-primary" onclick="showTab('${id}')">View</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Quiz Data
+        const quizQuestions = [
+            {
+                question: "A project manager discovers that partially completed code is waiting for testing. According to Lean principles, what type of waste is this?",
+                options: [
+                    "Extra processes",
+                    "Partially done work",
+                    "Task switching",
+                    "Motion"
+                ],
+                correct: 1,
+                explanation: "Partially done work is one of the seven Lean wastes. Code that is waiting for testing cannot provide value to the customer until it's complete, making it waste that should be eliminated."
+            },
+            {
+                question: "During project selection, Project A has an NPV of $200K and Project B has an NPV of $150K. If you choose Project A, what is the opportunity cost?",
+                options: [
+                    "$200,000",
+                    "$150,000",
+                    "$50,000",
+                    "$350,000"
+                ],
+                correct: 1,
+                explanation: "Opportunity cost is the value of the next best alternative you didn't choose. Since you chose Project A, the opportunity cost is the NPV of Project B ($150K)."
+            },
+            {
+                question: "What is the PRIMARY purpose of the project charter?",
+                options: [
+                    "To provide detailed project requirements",
+                    "To formally authorize the project and appoint the project manager",
+                    "To document all project risks",
+                    "To create the work breakdown structure"
+                ],
+                correct: 1,
+                explanation: "The project charter formally authorizes the project to begin and names the project manager, giving them authority to apply resources. It's created before detailed planning."
+            },
+            {
+                question: "A team member is adding extra features to a product without customer request to make it more impressive. What is this called?",
+                options: [
+                    "Scope creep",
+                    "Value engineering",
+                    "Gold plating",
+                    "Progressive elaboration"
+                ],
+                correct: 2,
+                explanation: "Gold plating is when the team voluntarily adds extra features that the customer did not request. This is considered waste in Lean thinking and can lead to cost overruns and delays."
+            },
+            {
+                question: "For a 2-week sprint, what is the maximum time-box for Sprint Planning?",
+                options: [
+                    "2 hours",
+                    "4 hours",
+                    "6 hours",
+                    "8 hours"
+                ],
+                correct: 1,
+                explanation: "For a 2-week sprint, Sprint Planning is time-boxed to a maximum of 4 hours. The general rule is 2 hours per week of sprint duration."
+            },
+            {
+                question: "Which of the following is an example of an Enterprise Environmental Factor (EEF)?",
+                options: [
+                    "Project templates from previous projects",
+                    "Lessons learned database",
+                    "Government regulations",
+                    "Historical project files"
+                ],
+                correct: 2,
+                explanation: "Government regulations are an EEF because they are external factors outside the project team's control. The other options are Organizational Process Assets (OPAs) that the team can use."
+            },
+            {
+                question: "A project has EV=$80K, AC=$100K, and PV=$90K. What is the CPI?",
+                options: [
+                    "0.80",
+                    "0.89",
+                    "1.11",
+                    "1.25"
+                ],
+                correct: 0,
+                explanation: "CPI = EV / AC = $80K / $100K = 0.80. Since CPI < 1.0, the project is over budget (only getting 80 cents of value for every dollar spent)."
+            },
+            {
+                question: "Which role is responsible for maximizing the value of the product and managing the Product Backlog?",
+                options: [
+                    "Scrum Master",
+                    "Development Team",
+                    "Product Owner",
+                    "Project Manager"
+                ],
+                correct: 2,
+                explanation: "The Product Owner is responsible for maximizing product value and managing the Product Backlog. They prioritize items and ensure the team is building the right thing."
+            },
+            {
+                question: "What does the 'I' in INVEST stand for when writing user stories?",
+                options: [
+                    "Iterative",
+                    "Independent",
+                    "Integrated",
+                    "Incremental"
+                ],
+                correct: 1,
+                explanation: "INVEST stands for Independent, Negotiable, Valuable, Estimable, Small, and Testable. Independent means the story can be developed and delivered independently of other stories."
+            },
+            {
+                question: "A team constantly switches between tasks, reducing productivity. According to Lean, what type of waste is this?",
+                options: [
+                    "Motion",
+                    "Waiting",
+                    "Task switching",
+                    "Extra processes"
+                ],
+                correct: 2,
+                explanation: "Task switching is one of the seven Lean wastes. Constantly switching between tasks causes productivity loss due to context switching costs and increased mental fatigue."
+            },
+            {
+                question: "What is the PRIMARY difference between work performance DATA and work performance INFORMATION?",
+                options: [
+                    "Data is for management, information is for the team",
+                    "Data is raw observations, information is analyzed data",
+                    "Data is historical, information is current",
+                    "Data is quantitative, information is qualitative"
+                ],
+                correct: 1,
+                explanation: "Data consists of raw observations and measurements from the work itself (e.g., actual cost). Information is the result of analyzing and interpreting that data (e.g., cost variance). Information = Processed Data."
+            },
+            {
+                question: "A project has delayed by 5 days. The PM submits a change request to extend the deadline. What type of change request is this?",
+                options: [
+                    "Preventive action",
+                    "Corrective action",
+                    "Defect repair",
+                    "Update"
+                ],
+                correct: 1,
+                explanation: "This is a corrective action. The project has gone off plan (delayed), and the change request aims to realign the project to the baseline by extending the deadline. Corrective actions fix problems that have already occurred."
+            },
+            {
+                question: "How many sub-plans make up the complete project management plan according to PMI?",
+                options: [
+                    "10 plans",
+                    "15 plans",
+                    "18 plans",
+                    "20 plans"
+                ],
+                correct: 2,
+                explanation: "The project management plan consists of 18 sub-plans, organized by the 9-4-3-2 mnemonic: 9 area plans, 4 baselines, 3 scope-related plans, and 2 lifecycle plans."
+            },
+            {
+                question: "What is the difference between a RISK and an ISSUE?",
+                options: [
+                    "Risks are uncertain, issues are certain",
+                    "Risks are future events, issues are current problems",
+                    "Risks are documented in Risk Register, issues in Issue Log",
+                    "All of the above"
+                ],
+                correct: 3,
+                explanation: "All statements are correct. Risks are anticipated future events with uncertainty, while issues are current problems already affecting the project. Risks go in the Risk Register, issues in the Issue Log."
+            },
+            {
+                question: "For a LARGE, complex project, when should the kickoff meeting be held?",
+                options: [
+                    "Before planning begins",
+                    "After the project charter is signed",
+                    "After creating the project plan",
+                    "During the planning phase"
+                ],
+                correct: 2,
+                explanation: "For large, complex projects, PMI recommends holding the kickoff meeting AFTER creating the project plan. This allows a small team to plan efficiently, then engage all stakeholders once the plan is complete."
+            },
+            {
+                question: "In an Agile project, which baselines typically exist?",
+                options: [
+                    "Schedule and Cost baselines only",
+                    "Scope, Schedule, and Cost baselines",
+                    "Scope baseline only",
+                    "Performance measurement baseline only"
+                ],
+                correct: 0,
+                explanation: "Agile projects typically have Schedule and Cost baselines (known at the start), but NO scope baseline because scope is dynamic in Agile. The scope baseline would constantly change, which defeats the purpose of Agile flexibility."
+            },
+            {
+                question: "A change in a project document has no impact on cost, schedule, or scope. Does this require a change request?",
+                options: [
+                    "Yes, all changes require change requests",
+                    "No, changes that don't affect baselines don't need change requests",
+                    "Yes, but only for documentation purposes",
+                    "It depends on organizational policy"
+                ],
+                correct: 1,
+                explanation: "Change requests are ONLY needed when changes affect baselines (schedule, cost, or scope). If a change has no impact on these baselines, it can be handled within the team without a formal change request process."
+            },
+            {
+                question: "What does 'baselining' mean in PMI terminology?",
+                options: [
+                    "Creating a preliminary estimate",
+                    "Approving for control and measurement",
+                    "Setting minimum requirements",
+                    "Establishing starting conditions"
+                ],
+                correct: 1,
+                explanation: "In PMI, baselining means 'approving for control.' A baseline is the approved version of a plan (schedule, cost, or scope) that project performance will be measured against. It's the reference point for control."
+            },
+            {
+                question: "The 9-4-3-2 mnemonic helps remember which project management concept?",
+                options: [
+                    "The 18 sub-plans in the project management plan",
+                    "The project selection criteria",
+                    "The phases of project execution",
+                    "The types of change requests"
+                ],
+                correct: 0,
+                explanation: "The 9-4-3-2 mnemonic represents the 18 sub-plans: 9 area plans (one per knowledge area except Integration), 4 baselines, 3 scope-related plans, and 2 lifecycle plans."
+            }
+        ];
+
+        let currentQuiz = [];
+        let currentQuestion = 0;
+        let score = 0;
+
+        function startQuiz() {
+            // Shuffle questions
+            currentQuiz = [...quizQuestions].sort(() => Math.random() - 0.5).slice(0, 5);
+            currentQuestion = 0;
+            score = 0;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            if (currentQuestion >= currentQuiz.length) {
+                showResults();
+                return;
+            }
+            
+            const q = currentQuiz[currentQuestion];
+            const quizContent = document.getElementById('quizContent');
+            
+            quizContent.innerHTML = `
+                <div class="quiz-question">
+                    <div class="question-number">Question ${currentQuestion + 1} of ${currentQuiz.length}</div>
+                    <div class="question-text">${q.question}</div>
+                    <div class="quiz-options">
+                        ${q.options.map((option, index) => `
+                            <div class="quiz-option" onclick="selectAnswer(${index})">
+                                <div class="option-letter">${String.fromCharCode(65 + index)}</div>
+                                <div>${option}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="quiz-explanation" id="explanation"></div>
+                </div>
+            `;
+        }
+
+        function selectAnswer(selected) {
+            const q = currentQuiz[currentQuestion];
+            const options = document.querySelectorAll('.quiz-option');
+            
+            options.forEach((option, index) => {
+                option.onclick = null; // Disable further clicks
+                if (index === q.correct) {
+                    option.classList.add('correct');
+                } else if (index === selected) {
+                    option.classList.add('incorrect');
+                }
+            });
+            
+            if (selected === q.correct) {
+                score++;
+            }
+            
+            // Show explanation
+            const explanation = document.getElementById('explanation');
+            explanation.innerHTML = `
+                <h3 style="color: var(--secondary); margin-bottom: 0.75rem;">
+                    ${selected === q.correct ? '✅ Correct!' : '❌ Incorrect'}
+                </h3>
+                <p>${q.explanation}</p>
+            `;
+            explanation.classList.add('show');
+            
+            // Show next button
+            setTimeout(() => {
+                const quizContent = document.getElementById('quizContent');
+                quizContent.innerHTML += `
+                    <button class="btn btn-primary" onclick="nextQuestion()" style="margin-top: 1.5rem;">
+                        ${currentQuestion < currentQuiz.length - 1 ? 'Next Question →' : 'Show Results 🎉'}
+                    </button>
+                `;
+            }, 500);
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            showQuestion();
+        }
+
+        function showResults() {
+            const percentage = Math.round((score / currentQuiz.length) * 100);
+            const quizContent = document.getElementById('quizContent');
+            
+            quizContent.innerHTML = `
+                <div class="quiz-score">
+                    <h2>Quiz Complete! 🎉</h2>
+                    <p>${score} / ${currentQuiz.length}</p>
+                    <p style="font-size: 1.5rem; font-weight: 600;">${percentage}%</p>
+                    <div style="margin-top: 1.5rem;">
+                        ${percentage >= 80 ? 
+                            '<p style="font-size: 1.125rem;">Excellent work! You\'re well-prepared! 🌟</p>' :
+                            percentage >= 60 ?
+                            '<p style="font-size: 1.125rem;">Good job! Review the topics you missed. 📚</p>' :
+                            '<p style="font-size: 1.125rem;">Keep studying! Practice makes perfect. 💪</p>'
+                        }
+                    </div>
+                </div>
+            `;
+            
+            // Update stats
+            document.getElementById('quizScore').textContent = percentage + '%';
+            document.getElementById('quizProgress').style.width = percentage + '%';
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateBookmarkCount();
+            updateBookmarksList();
+            
+            // Load bookmarked state
+            bookmarks.forEach(id => {
+                const btn = document.querySelector(`[onclick*="toggleBookmark('${id}')"]`);
+                if (btn) btn.classList.add('bookmarked');
+            });
+        });
+    </script>
+</body>
+</html>
