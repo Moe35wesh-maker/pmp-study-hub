@@ -778,12 +778,12 @@
                 <div class="stat-header">
                     <div class="stat-icon">📚</div>
                     <div>
-                        <div class="stat-value" id="totalDays">9</div>
+                        <div class="stat-value" id="totalDays">12</div>
                         <div class="stat-label">Study Days Completed</div>
                     </div>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 90%"></div>
+                    <div class="progress-fill" style="width: 100%"></div>
                 </div>
             </div>
             
@@ -791,12 +791,12 @@
                 <div class="stat-header">
                     <div class="stat-icon">✅</div>
                     <div>
-                        <div class="stat-value" id="topicsCompleted">27</div>
+                        <div class="stat-value" id="topicsCompleted">36</div>
                         <div class="stat-label">Topics Mastered</div>
                     </div>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 75%"></div>
+                    <div class="progress-fill" style="width: 100%"></div>
                 </div>
             </div>
             
@@ -836,13 +836,22 @@
                 <span>📅</span> Days 1-6
             </button>
             <button class="nav-tab" onclick="showTab('day7')">
-                <span>📅</span> Day 7: Lean
+                <span>📅</span> Day 7
             </button>
             <button class="nav-tab" onclick="showTab('day8')">
-                <span>📅</span> Day 8: Integration
+                <span>📅</span> Day 8
             </button>
             <button class="nav-tab" onclick="showTab('day9')">
-                <span>📅</span> Day 9: Planning
+                <span>📅</span> Day 9
+            </button>
+            <button class="nav-tab" onclick="showTab('day10')">
+                <span>📅</span> Day 10
+            </button>
+            <button class="nav-tab" onclick="showTab('day11')">
+                <span>📅</span> Day 11
+            </button>
+            <button class="nav-tab" onclick="showTab('day12')">
+                <span>📅</span> Day 12
             </button>
             <button class="nav-tab" onclick="showTab('cheatsheet')">
                 <span>⚡</span> Cheat Sheets
@@ -937,6 +946,21 @@
                             <tr>
                                 <td><strong>Day 9</strong></td>
                                 <td>Project Planning (18 Sub-Plans), Direct & Manage Work</td>
+                                <td><span style="color: var(--success);">✅ Complete</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Day 10</strong></td>
+                                <td>Monitor & Control, Data Analysis, Change Control</td>
+                                <td><span style="color: var(--success);">✅ Complete</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Day 11</strong></td>
+                                <td>WBS, Scope Baseline, Validate Scope</td>
+                                <td><span style="color: var(--success);">✅ Complete</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Day 12</strong></td>
+                                <td>Schedule Management, Three-Point Estimates, Agile Metrics</td>
                                 <td><span style="color: var(--success);">✅ Complete</span></td>
                             </tr>
                         </tbody>
@@ -2298,6 +2322,1407 @@
                             <li>Remember kickoff meeting timing for large vs small projects</li>
                             <li>Understand Agile planning differences</li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 10 Section -->
+        <div id="day10" class="content-section">
+            <div class="study-card">
+                <div class="study-card-header">
+                    <h1 class="study-card-title">
+                        <span class="day-badge">Day 10</span>
+                        Monitoring, Control & Scope Management
+                    </h1>
+                    <button class="bookmark-btn" onclick="toggleBookmark('day10')">⭐</button>
+                </div>
+                <div class="study-content">
+                    <p style="font-size: 1.125rem; margin-bottom: 2rem;">
+                        Day 10 covers critical monitoring processes, data analysis techniques, and introduces Project Scope 
+                        Management. The Integrated Change Control process is one of the MOST TESTED topics on the PMP exam!
+                    </p>
+                    
+                    <div class="key-points">
+                        <h3><span>🎯</span> Day 10 Core Topics</h3>
+                        <ul>
+                            <li><strong>Monitor and Control Project Work</strong> - Tracking project status</li>
+                            <li><strong>5 Data Analysis Techniques</strong> - Alternative, Cost-Benefit, Root Cause, Trend, Variance</li>
+                            <li><strong>5 Decision-Making Techniques</strong> - Unanimity, Majority, Plurality, Dictatorship, Multi-Criteria</li>
+                            <li><strong>Perform Integrated Change Control</strong> - Most tested process (40+ questions!)</li>
+                            <li><strong>Product vs Project Scope</strong> - Critical distinction</li>
+                            <li><strong>Requirements Gathering</strong> - 10+ techniques</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>📊 Monitor and Control Project Work</h2>
+                    <div class="key-points">
+                        <p><strong>Purpose:</strong> Activity performed throughout the project to ensure stakeholders know the project status.</p>
+                        
+                        <p><strong>What We Monitor:</strong></p>
+                        <ul>
+                            <li><strong>Cost Performance:</strong> Are we over/under budget?</li>
+                            <li><strong>Schedule Performance:</strong> Are we ahead/behind schedule?</li>
+                            <li><strong>Quality Performance:</strong> Are we meeting quality standards?</li>
+                            <li><strong>Risk Status:</strong> How are we managing risks?</li>
+                        </ul>
+                        
+                        <p><strong>Key Activity:</strong> Compare actual work against baselines (cost, schedule, scope)</p>
+                    </div>
+                    
+                    <h2>🔍 5 Data Analysis Techniques 🔥🔥🔥</h2>
+                    
+                    <h3>1. Alternative Analysis</h3>
+                    <div class="exam-tip">
+                        <p><strong>Definition:</strong> Comparing different alternatives to deal with a problem and choosing the best one.</p>
+                        
+                        <p><strong>Example Scenario:</strong> Project is behind schedule by 2 months.</p>
+                        <p><strong>Alternatives to Consider:</strong></p>
+                        <ul>
+                            <li>Work overtime</li>
+                            <li>Crash the project (add more resources)</li>
+                            <li>Fast-track activities (do tasks in parallel)</li>
+                            <li>Reduce scope</li>
+                            <li>Extend deadline</li>
+                        </ul>
+                        <p><strong>Process:</strong> Compare each alternative and select the one that works best for your situation.</p>
+                    </div>
+                    
+                    <h3>2. Cost-Benefit Analysis</h3>
+                    <div class="exam-tip">
+                        <p><strong>Definition:</strong> Comparing the cost versus the benefit of different methods/solutions.</p>
+                        
+                        <p><strong>Example:</strong> Multiple methods to fix defects - compare cost vs benefit of each method.</p>
+                        <p><strong>Decision Rule:</strong> Prefer the method with more benefit over cost (highest benefit-to-cost ratio).</p>
+                    </div>
+                    
+                    <h3>3. Root Cause Analysis</h3>
+                    <div class="exam-tip">
+                        <p><strong>Definition:</strong> Digging deeper to find the underlying cause of a problem.</p>
+                        
+                        <p><strong>Questions to Ask:</strong></p>
+                        <ul>
+                            <li>Where do the defects come from?</li>
+                            <li>Is it human error?</li>
+                            <li>Is it the measurements?</li>
+                            <li>Is it from the machine?</li>
+                            <li>Is it the process?</li>
+                        </ul>
+                        
+                        <p><strong>Tools Used:</strong></p>
+                        <ul>
+                            <li>Fishbone Diagram (Ishikawa)</li>
+                            <li>5 Whys</li>
+                            <li>Pareto Chart</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>4. Trend Analysis</h3>
+                    <div class="exam-tip">
+                        <p><strong>Definition:</strong> Using current performance data to predict future performance.</p>
+                        
+                        <p><strong>Example:</strong> Review spending for the last 4 months → Use that data to predict spending for next 4-6 months.</p>
+                        
+                        <p><strong>Benefits:</strong></p>
+                        <ul>
+                            <li>Identify patterns</li>
+                            <li>Know if performance is improving or deteriorating</li>
+                            <li>Forecast future outcomes</li>
+                            <li>Take preventive actions early</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>5. Variance Analysis</h3>
+                    <div class="warning">
+                        <h3><span>⚠️</span> Key Concept: Variance = Difference</h3>
+                        <p><strong>Definition:</strong> Calculating the difference between planned and actual performance.</p>
+                        
+                        <p><strong>Example - Cost Variance:</strong></p>
+                        <ul>
+                            <li>Planned cost to date: $500</li>
+                            <li>Actual cost: $600</li>
+                            <li>Cost Variance = $500 - $600 = -$100 (over budget)</li>
+                        </ul>
+                        
+                        <p><strong>When to Act:</strong> If variance magnitude is too large, raise a change request to address the problem.</p>
+                        
+                        <p><strong>Related to EVM:</strong> Cost Variance (CV) = EV - AC</p>
+                    </div>
+                    
+                    <h2>🗳️ 5 Decision-Making Techniques 🔥🔥</h2>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Technique</th>
+                                <th>Definition</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Unanimity</strong></td>
+                                <td>Everyone agrees (100%)</td>
+                                <td>All 10 team members must agree to proceed. If even 1 person opposes, decision fails.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Majority</strong></td>
+                                <td>More than 50% agree (50% + 1)</td>
+                                <td>Out of 10 people, need at least 6 to agree. Like most democratic elections.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Plurality</strong></td>
+                                <td>Largest block wins (even if not majority)</td>
+                                <td>3 options: A gets 47%, B gets 32%, C gets 21%. Option A wins even though it's not >50%.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dictatorship</strong></td>
+                                <td>One person decides</td>
+                                <td>Project manager or sponsor makes all decisions alone. Not recommended but sometimes necessary.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Multi-Criteria Decision-Making</strong></td>
+                                <td>Multiple factors considered, weighted scoring</td>
+                                <td>Evaluate options based on cost, time, quality, risk - each with different weights.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Exam Tip: Unanimity vs Majority</h3>
+                        <ul>
+                            <li><strong>Unanimity:</strong> ALL must agree (100%) - Hardest to achieve</li>
+                            <li><strong>Majority:</strong> More than half (>50%) - Most common in teams</li>
+                            <li><strong>Plurality:</strong> Biggest group wins - Used when majority not possible</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>🔄 Perform Integrated Change Control 🔥🔥🔥🔥</h2>
+                    <div class="warning">
+                        <h3><span>⚠️</span> MOST TESTED PROCESS - Expect 40+ Questions!</h3>
+                        <p>This is one of the highest-tested topics on the PMP exam. Master this process!</p>
+                    </div>
+                    
+                    <div class="key-points">
+                        <h3><span>🎯</span> What is Integrated Change Control?</h3>
+                        <p><strong>Definition:</strong> A formal process for reviewing, approving, or rejecting changes to the project.</p>
+                        
+                        <p><strong>When:</strong> Throughout the project (continuous process)</p>
+                        
+                        <p><strong>Who:</strong> Change Control Board (CCB)</p>
+                        <ul>
+                            <li>Large organizations: Committee of functional managers, board members</li>
+                            <li>Small organizations: May be just the sponsor</li>
+                            <li>Meets regularly (weekly, monthly) to review changes</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>What is a Change Request?</h3>
+                    <div class="exam-tip">
+                        <p><strong>Definition:</strong> A formal method to modify a document, deliverable, or baseline.</p>
+                        
+                        <p><strong>Key Points:</strong></p>
+                        <ul>
+                            <li>Can be raised by ANYONE at ANY TIME</li>
+                            <li>Must go through formal approval process</li>
+                            <li>CCB reviews and makes decision: Approve, Reject, or Defer</li>
+                            <li>Always assume your organization has a CCB</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Two Types of Changes</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Impact</th>
+                                <th>Approval Required?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Type 1: Baseline Changes</strong></td>
+                                <td>Affects schedule, cost, or scope baseline</td>
+                                <td>✅ YES - Formal CCB approval required</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Type 2: Non-Baseline Changes</strong></td>
+                                <td>No impact on baselines</td>
+                                <td>❌ NO - Can be handled within team</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Critical Rule</h3>
+                        <p><strong>If a change affects schedule, cost, or scope baseline → Formal change request required</strong></p>
+                        <p><strong>If no baseline impact → Team can handle it directly</strong></p>
+                    </div>
+                    
+                    <h3>Example Scenarios</h3>
+                    <div class="key-points">
+                        <p><strong>Requires Change Request:</strong></p>
+                        <ul>
+                            <li>Customer wants 2 additional rooms (affects cost, schedule, scope)</li>
+                            <li>Need to extend project deadline by 5 days (affects schedule baseline)</li>
+                            <li>Budget needs to increase by $50,000 (affects cost baseline)</li>
+                            <li>Remove a deliverable from scope (affects scope baseline)</li>
+                        </ul>
+                        
+                        <p><strong>Does NOT Require Change Request:</strong></p>
+                        <ul>
+                            <li>Change roof color from red to blue (same cost, same timeline)</li>
+                            <li>Update a document format (no baseline impact)</li>
+                            <li>Reassign team member to different task (no baseline change)</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Change Control in Agile</h3>
+                    <div class="warning">
+                        <h3><span>⚠️</span> Agile is Different!</h3>
+                        <p><strong>In Agile Projects:</strong></p>
+                        <ul>
+                            <li>Changes handled more casually/flexibly</li>
+                            <li><strong>Product Owner</strong> typically approves most changes</li>
+                            <li><strong>Significant changes</strong> (budget, timeline) escalated to sponsor</li>
+                            <li>No formal CCB meetings for scope changes (scope is dynamic)</li>
+                            <li>Changes to schedule/cost ceiling still need sponsor approval</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>⚡ Fast Tracking vs Crashing 🔥🔥</h2>
+                    <p>These are schedule compression techniques used when you're behind schedule:</p>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Technique</th>
+                                <th>What It Is</th>
+                                <th>Pros</th>
+                                <th>Cons</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Fast Tracking</strong></td>
+                                <td>Do activities in parallel that were planned to be done sequentially</td>
+                                <td>• Saves time<br>• No extra cost</td>
+                                <td>• Increases risk<br>• May cause rework</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Crashing</strong></td>
+                                <td>Add more resources to critical path activities</td>
+                                <td>• Saves time<br>• Reduces duration</td>
+                                <td>• Costs more money<br>• Need available resources</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Examples</h3>
+                        <p><strong>Fast Tracking:</strong></p>
+                        <ul>
+                            <li>Original: Roofing (10 days) → Then Landscaping (10 days) = 20 days</li>
+                            <li>Fast Tracked: Start Landscaping 5 days before Roofing finishes = 15 days</li>
+                        </ul>
+                        
+                        <p><strong>Crashing:</strong></p>
+                        <ul>
+                            <li>Original: 5 people complete task in 5 days</li>
+                            <li>Crashed: 10 people complete task in 3 days (but costs more)</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>📦 Product Scope vs Project Scope 🔥🔥🔥</h2>
+                    <div class="warning">
+                        <h3><span>⚠️</span> Critical Distinction for Exam</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Aspect</th>
+                                    <th>Product Scope</th>
+                                    <th>Project Scope</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Definition</strong></td>
+                                    <td>Features and functions of the deliverable</td>
+                                    <td>Work required to deliver the product</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Focus</strong></td>
+                                    <td>WHAT the product does</td>
+                                    <td>HOW we'll deliver it</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Example</strong></td>
+                                    <td>Website with login, search, shopping cart</td>
+                                    <td>Design, coding, testing, deployment activities</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Measured Against</strong></td>
+                                    <td>Product requirements</td>
+                                    <td>Project management plan</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h2>📋 Requirements Gathering Techniques 🔥🔥</h2>
+                    <p>Multiple techniques to collect project requirements from stakeholders:</p>
+                    
+                    <div class="key-points">
+                        <h3>10+ Techniques to Know:</h3>
+                        
+                        <ol>
+                            <li><strong>Expert Judgment</strong> - Consult people with specialized knowledge</li>
+                            <li><strong>Focus Groups</strong> - Small group discussions on specific topics</li>
+                            <li><strong>Brainstorming</strong> - Team generates ideas freely</li>
+                            <li><strong>Questionnaires/Surveys</strong> - Written questions to large audience</li>
+                            <li><strong>Interviews</strong> - One-on-one discussions</li>
+                            <li><strong>Benchmarking</strong> - Compare with industry standards or competitors</li>
+                            <li><strong>Document Analysis</strong> - Review existing documentation</li>
+                            <li><strong>Job Shadowing</strong> - Observe stakeholders doing their work</li>
+                            <li><strong>Facilitation</strong> - Guided workshops with stakeholders</li>
+                            <li><strong>Context Diagrams</strong> - Visual representation of system boundaries</li>
+                            <li><strong>Prototypes</strong> - Working model to get feedback</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> When to Use Each Technique</h3>
+                        <ul>
+                            <li><strong>Questionnaires:</strong> Large, geographically dispersed group</li>
+                            <li><strong>Interviews:</strong> Detailed, sensitive, or complex requirements</li>
+                            <li><strong>Focus Groups:</strong> Get diverse perspectives on specific topic</li>
+                            <li><strong>Prototypes:</strong> Requirements are unclear, need visual/tangible example</li>
+                            <li><strong>Job Shadowing:</strong> Understand actual work process</li>
+                            <li><strong>Benchmarking:</strong> Want to match or exceed industry standards</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>🎯 Six Scope Management Processes</h2>
+                    <div class="key-points">
+                        <p>Project Scope Management includes these 6 processes:</p>
+                        <ol>
+                            <li><strong>Plan Scope Management</strong> - How we'll manage scope</li>
+                            <li><strong>Collect Requirements</strong> - Gather stakeholder needs</li>
+                            <li><strong>Define Scope</strong> - Detailed description of project and product</li>
+                            <li><strong>Create WBS</strong> - Break down work into manageable components</li>
+                            <li><strong>Validate Scope</strong> - Formal acceptance of deliverables</li>
+                            <li><strong>Control Scope</strong> - Monitor and control scope changes</li>
+                        </ol>
+                        <p><em>These processes will be covered in detail in Day 11!</em></p>
+                    </div>
+                    
+                    <div class="success-box">
+                        <h3><span>✅</span> Day 10 Key Takeaways</h3>
+                        <ul>
+                            <li><strong>Monitor and Control:</strong> Compare actual vs baseline throughout project</li>
+                            <li><strong>5 Data Analysis Techniques:</strong> Alternative, Cost-Benefit, Root Cause, Trend, Variance</li>
+                            <li><strong>5 Decision Methods:</strong> Unanimity, Majority, Plurality, Dictatorship, Multi-Criteria</li>
+                            <li><strong>Change Control:</strong> MOST TESTED! Formal process, CCB approval for baseline changes</li>
+                            <li><strong>Product vs Project Scope:</strong> WHAT the product does vs HOW we deliver it</li>
+                            <li><strong>Fast Track vs Crash:</strong> Parallel work vs More resources</li>
+                            <li><strong>Requirements Gathering:</strong> Know 10+ techniques and when to use them</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 11 Section -->
+        <div id="day11" class="content-section">
+            <div class="study-card">
+                <div class="study-card-header">
+                    <h1 class="study-card-title">
+                        <span class="day-badge">Day 11</span>
+                        Work Breakdown Structure & Scope Baseline
+                    </h1>
+                    <button class="bookmark-btn" onclick="toggleBookmark('day11')">⭐</button>
+                </div>
+                <div class="study-content">
+                    <p style="font-size: 1.125rem; margin-bottom: 2rem;">
+                        Day 11 covers the Work Breakdown Structure (WBS), Requirements Traceability Matrix, and the critical 
+                        Scope Baseline. Understanding these components is essential for PMP exam success!
+                    </p>
+                    
+                    <div class="key-points">
+                        <h3><span>🎯</span> Day 11 Core Topics</h3>
+                        <ul>
+                            <li><strong>Work Breakdown Structure (WBS)</strong> - Hierarchical decomposition</li>
+                            <li><strong>Requirements Traceability Matrix (RTM)</strong> - Track requirements</li>
+                            <li><strong>Project Scope Statement</strong> - Agreement with customer</li>
+                            <li><strong>WBS Dictionary</strong> - Detailed work package descriptions</li>
+                            <li><strong>Scope Baseline</strong> - WBS + Dictionary + Scope Statement</li>
+                            <li><strong>Validate Scope</strong> - Customer acceptance</li>
+                            <li><strong>Control Scope</strong> - Monitor and manage changes</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>🏗️ Work Breakdown Structure (WBS) 🔥🔥🔥</h2>
+                    <div class="warning">
+                        <h3><span>⚠️</span> One of the Most Important PMP Concepts!</h3>
+                        <p>The WBS is fundamental to project planning and heavily tested on the exam.</p>
+                    </div>
+                    
+                    <div class="key-points">
+                        <h3><span>📋</span> What is a WBS?</h3>
+                        <p><strong>Definition:</strong> A hierarchical decomposition of the total scope of work to be carried out by the project team to accomplish the project objectives and create the required deliverables.</p>
+                        
+                        <p><strong>Key Characteristics:</strong></p>
+                        <ul>
+                            <li><strong>Deliverable-oriented:</strong> Organized by what you're producing, not how</li>
+                            <li><strong>Hierarchical:</strong> Breaks down from high-level to detailed</li>
+                            <li><strong>100% Rule:</strong> Must include 100% of project scope (nothing more, nothing less)</li>
+                            <li><strong>Shows WHAT, not HOW:</strong> Focuses on deliverables, not activities</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>WBS Structure</h3>
+                    <div class="exam-tip">
+                        <p><strong>Typical Levels:</strong></p>
+                        <pre style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+Level 0: Project
+    │
+    ├─ Level 1: Major Deliverables
+    │     │
+    │     ├─ Level 2: Sub-Deliverables
+    │     │     │
+    │     │     └─ Level 3: Work Packages (lowest level)
+        </pre>
+                        
+                        <p><strong>Work Package:</strong></p>
+                        <ul>
+                            <li>Lowest level of WBS</li>
+                            <li>Can be estimated for cost and duration</li>
+                            <li>Can be assigned to one person/team</li>
+                            <li>Has clear acceptance criteria</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>WBS Example: Website Project</h3>
+                    <div class="key-points">
+                        <pre style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+Website Project
+├─ 1.0 Design
+│   ├─ 1.1 UI/UX Design
+│   ├─ 1.2 Database Design
+│   └─ 1.3 Architecture Design
+├─ 2.0 Development
+│   ├─ 2.1 Frontend Development
+│   ├─ 2.2 Backend Development
+│   └─ 2.3 Database Implementation
+├─ 3.0 Testing
+│   ├─ 3.1 Unit Testing
+│   ├─ 3.2 Integration Testing
+│   └─ 3.3 User Acceptance Testing
+└─ 4.0 Deployment
+    ├─ 4.1 Server Setup
+    ├─ 4.2 Production Deployment
+    └─ 4.3 Training & Documentation
+        </pre>
+                    </div>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> WBS Best Practices</h3>
+                        <ul>
+                            <li>Use nouns, not verbs (deliverables, not activities)</li>
+                            <li>Each work package assigned to ONE owner</li>
+                            <li>Decompose to level where you can estimate accurately</li>
+                            <li>Create templates for similar future projects</li>
+                            <li>Involve the team in creating WBS</li>
+                            <li>Get stakeholder approval before finalizing</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>📊 Requirements Traceability Matrix (RTM) 🔥🔥🔥</h2>
+                    <div class="warning">
+                        <h3><span>⚠️</span> Highly Tested Document!</h3>
+                        <p>The RTM is critical for ensuring no requirements are overlooked. Expect multiple exam questions!</p>
+                    </div>
+                    
+                    <div class="key-points">
+                        <h3><span>🎯</span> What is an RTM?</h3>
+                        <p><strong>Definition:</strong> A document that links requirements from their origin through the entire project lifecycle to the deliverables that satisfy them.</p>
+                        
+                        <p><strong>Purpose:</strong></p>
+                        <ul>
+                            <li>Ensure no requirements are forgotten</li>
+                            <li>Track requirement status</li>
+                            <li>Manage scope changes</li>
+                            <li>Verify all requirements are met</li>
+                            <li>Maintain traceability throughout project</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>RTM Format</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Req ID</th>
+                                <th>Description</th>
+                                <th>Source</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Deliverable</th>
+                                <th>Test Case</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>REQ-001</td>
+                                <td>User login system</td>
+                                <td>Customer</td>
+                                <td>High</td>
+                                <td>Complete</td>
+                                <td>Auth Module</td>
+                                <td>TC-001</td>
+                            </tr>
+                            <tr>
+                                <td>REQ-002</td>
+                                <td>Search functionality</td>
+                                <td>Stakeholder</td>
+                                <td>Medium</td>
+                                <td>In Progress</td>
+                                <td>Search Module</td>
+                                <td>TC-002</td>
+                            </tr>
+                            <tr>
+                                <td>REQ-003</td>
+                                <td>Report generation</td>
+                                <td>Regulation</td>
+                                <td>High</td>
+                                <td>Not Started</td>
+                                <td>Reporting</td>
+                                <td>TC-003</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> RTM Benefits</h3>
+                        <ul>
+                            <li>Prevents scope creep (tracks approved requirements)</li>
+                            <li>Ensures complete testing coverage</li>
+                            <li>Helps manage changes (see impact)</li>
+                            <li>Provides audit trail</li>
+                            <li>Facilitates communication with stakeholders</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>📄 Project Scope Statement 🔥🔥🔥</h2>
+                    <div class="key-points">
+                        <h3><span>📋</span> What is the Project Scope Statement?</h3>
+                        <p><strong>Definition:</strong> A detailed description of the project and product scope. It's an agreement between the project team and the customer.</p>
+                        
+                        <p><strong>Purpose:</strong> Provides common understanding of project scope among stakeholders.</p>
+                    </div>
+                    
+                    <h3>Components of Project Scope Statement</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1. Project Objectives</strong></td>
+                                <td>Specific, measurable goals the project aims to achieve</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2. Product Scope Description</strong></td>
+                                <td>Features and functions of the product/service/result</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3. Project Deliverables</strong></td>
+                                <td>Products, services, or results to be delivered</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4. Acceptance Criteria</strong></td>
+                                <td>Conditions that must be met for deliverables to be accepted</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5. Project Exclusions</strong></td>
+                                <td>What is specifically NOT included in the project</td>
+                            </tr>
+                            <tr>
+                                <td><strong>6. Constraints</strong></td>
+                                <td>Limiting factors (budget, timeline, resources)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>7. Assumptions</strong></td>
+                                <td>Factors considered true without proof</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Project Exclusions Are Critical!</h3>
+                        <p>Explicitly stating what's NOT included is just as important as stating what IS included. This prevents scope creep and manages expectations.</p>
+                        
+                        <p><strong>Example for Website Project:</strong></p>
+                        <ul>
+                            <li><strong>Included:</strong> User login, product catalog, shopping cart</li>
+                            <li><strong>Excluded:</strong> Payment processing, mobile app, email marketing integration</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>📚 WBS Dictionary 🔥🔥</h2>
+                    <div class="key-points">
+                        <h3><span>📖</span> What is the WBS Dictionary?</h3>
+                        <p><strong>Definition:</strong> A document that provides detailed information about each component in the WBS.</p>
+                        
+                        <p><strong>Purpose:</strong> Companion document to the WBS that describes each work package in detail.</p>
+                    </div>
+                    
+                    <h3>WBS Dictionary Contents</h3>
+                    <div class="exam-tip">
+                        <p><strong>For Each Work Package, Include:</strong></p>
+                        <ul>
+                            <li><strong>Work Package ID:</strong> Unique identifier (e.g., 1.2.3)</li>
+                            <li><strong>Work Package Name:</strong> Clear, descriptive name</li>
+                            <li><strong>Description of Work:</strong> What needs to be done</li>
+                            <li><strong>Responsible Organization:</strong> Who's accountable</li>
+                            <li><strong>List of Activities:</strong> Tasks to complete work package</li>
+                            <li><strong>Resources Required:</strong> People, equipment, materials</li>
+                            <li><strong>Cost Estimate:</strong> Budgeted amount</li>
+                            <li><strong>Duration Estimate:</strong> Time required</li>
+                            <li><strong>Quality Requirements:</strong> Standards to meet</li>
+                            <li><strong>Acceptance Criteria:</strong> How completion is determined</li>
+                            <li><strong>Dependencies:</strong> What must happen before/after</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Example: WBS Dictionary Entry</h3>
+                    <div class="key-points">
+                        <pre style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin: 1rem 0; white-space: pre-wrap;">
+<strong>Work Package ID:</strong> 2.1
+<strong>Work Package Name:</strong> Frontend Development
+
+<strong>Description:</strong> Develop all user-facing components of the website including 
+responsive design, user interface implementation, and client-side functionality.
+
+<strong>Responsible Organization:</strong> Development Team - Frontend Unit
+<strong>Owner:</strong> Jane Smith, Senior Frontend Developer
+
+<strong>Activities:</strong>
+- Design responsive layouts
+- Implement React components
+- Integrate with backend APIs
+- Ensure cross-browser compatibility
+- Optimize performance
+
+<strong>Resources Required:</strong>
+- 2 Frontend Developers
+- UI/UX Designer (consultation)
+- Development workstations
+- Testing devices (mobile, tablet, desktop)
+
+<strong>Cost Estimate:</strong> $45,000
+<strong>Duration Estimate:</strong> 6 weeks
+
+<strong>Quality Requirements:</strong>
+- Must meet WCAG 2.1 AA accessibility standards
+- Page load time < 3 seconds
+- Mobile responsive (phones, tablets)
+- Cross-browser compatible (Chrome, Firefox, Safari, Edge)
+
+<strong>Acceptance Criteria:</strong>
+- All UI components functional and tested
+- Passed code review
+- No critical bugs
+- Approved by UX team
+
+<strong>Dependencies:</strong>
+- Requires UI/UX Design (1.1) to be complete
+- Must coordinate with Backend Development (2.2)
+        </pre>
+                    </div>
+                    
+                    <h2>📐 Scope Baseline 🔥🔥🔥🔥</h2>
+                    <div class="warning">
+                        <h3><span>⚠️</span> CRITICAL EXAM CONCEPT!</h3>
+                        <p>Know this cold: Scope Baseline = 3 Documents Combined!</p>
+                    </div>
+                    
+                    <div class="key-points">
+                        <h3><span>🎯</span> What is the Scope Baseline?</h3>
+                        <p><strong>Definition:</strong> The approved version of the project scope that is used to measure and control scope performance.</p>
+                        
+                        <p><strong>The Scope Baseline Consists of THREE Documents:</strong></p>
+                        <ol>
+                            <li><strong>WBS</strong> (Work Breakdown Structure)</li>
+                            <li><strong>WBS Dictionary</strong></li>
+                            <li><strong>Project Scope Statement</strong></li>
+                        </ol>
+                        
+                        <p style="background: var(--warning); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                            <strong>MEMORIZE THIS!</strong> Scope Baseline = WBS + WBS Dictionary + Project Scope Statement
+                        </p>
+                    </div>
+                    
+                    <h3>Why is it Called a "Baseline"?</h3>
+                    <div class="exam-tip">
+                        <p><strong>Baseline Definition:</strong> An approved version of a work product that serves as a reference point for comparison.</p>
+                        
+                        <p><strong>Key Points About Baselines:</strong></p>
+                        <ul>
+                            <li>Used to measure project performance</li>
+                            <li>Can only be changed through formal change control</li>
+                            <li>Provides reference for variance analysis</li>
+                            <li>Three project baselines: Scope, Schedule, Cost</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Using the Scope Baseline</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Purpose</th>
+                                <th>How It's Used</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Scope Control</strong></td>
+                                <td>Compare actual scope vs baseline scope to detect scope creep</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Change Management</strong></td>
+                                <td>All scope changes measured against baseline</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Performance Measurement</strong></td>
+                                <td>Determine if project is delivering what was planned</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Stakeholder Communication</strong></td>
+                                <td>Reference point for what was agreed upon</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h2>✅ Validate Scope 🔥🔥🔥</h2>
+                    <div class="key-points">
+                        <h3><span>📋</span> What is Validate Scope?</h3>
+                        <p><strong>Definition:</strong> The process of formalizing acceptance of the completed project deliverables.</p>
+                        
+                        <p><strong>Key Points:</strong></p>
+                        <ul>
+                            <li>Done by CUSTOMER/SPONSOR (not team)</li>
+                            <li>Formal inspection of deliverables</li>
+                            <li>Results in accepted deliverables</li>
+                            <li>Performed at end of each phase or project</li>
+                            <li>Uses acceptance criteria from scope statement</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Validate Scope vs Quality Control</h3>
+                    <div class="warning">
+                        <h3><span>⚠️</span> Critical Difference - Heavily Tested!</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Aspect</th>
+                                    <th>Validate Scope</th>
+                                    <th>Quality Control</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Focus</strong></td>
+                                    <td>ACCEPTANCE</td>
+                                    <td>CORRECTNESS</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Who Does It</strong></td>
+                                    <td>Customer/Sponsor</td>
+                                    <td>Project Team</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Question Asked</strong></td>
+                                    <td>"Do we accept this?"</td>
+                                    <td>"Is this correct?"</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>When</strong></td>
+                                    <td>End of phase/project</td>
+                                    <td>Throughout project</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Result</strong></td>
+                                    <td>Accepted/Rejected deliverable</td>
+                                    <td>Pass/Fail quality check</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Process Group</strong></td>
+                                    <td>Monitoring & Controlling</td>
+                                    <td>Monitoring & Controlling</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Easy Way to Remember</h3>
+                        <ul>
+                            <li><strong>Quality Control:</strong> Team checks if work is CORRECT</li>
+                            <li><strong>Validate Scope:</strong> Customer checks if they ACCEPT it</li>
+                            <li>QC happens first, then Validate Scope</li>
+                            <li>Something can pass QC but fail Validate Scope (correct but not what customer wanted)</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>🔍 Control Scope 🔥</h2>
+                    <div class="key-points">
+                        <h3><span>📊</span> What is Control Scope?</h3>
+                        <p><strong>Definition:</strong> The process of monitoring the status of the project scope and managing changes to the scope baseline.</p>
+                        
+                        <p><strong>Activities:</strong></p>
+                        <ul>
+                            <li>Monitor scope status continuously</li>
+                            <li>Compare actual scope vs scope baseline</li>
+                            <li>Identify scope variances</li>
+                            <li>Manage scope change requests</li>
+                            <li>Prevent unauthorized scope changes (scope creep)</li>
+                            <li>Update scope baseline when changes approved</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Preventing Scope Creep</h3>
+                    <div class="warning">
+                        <h3><span>⚠️</span> Scope Creep vs Gold Plating (Revisited)</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Aspect</th>
+                                    <th>Scope Creep</th>
+                                    <th>Gold Plating</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Definition</strong></td>
+                                    <td>Uncontrolled changes to project scope</td>
+                                    <td>Team adds features not requested</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Source</strong></td>
+                                    <td>External (customer/stakeholders)</td>
+                                    <td>Internal (project team)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Authorization</strong></td>
+                                    <td>Changes lack proper approval</td>
+                                    <td>Team adds without asking</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Impact</strong></td>
+                                    <td>Budget overruns, delays</td>
+                                    <td>Wasted effort, potential issues</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Prevention</strong></td>
+                                    <td>Strong change control process</td>
+                                    <td>Clear scope, team discipline</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="success-box">
+                        <h3><span>✅</span> Day 11 Key Takeaways</h3>
+                        <ul>
+                            <li><strong>WBS:</strong> Hierarchical decomposition, deliverable-oriented, shows WHAT not HOW</li>
+                            <li><strong>Scope Baseline:</strong> WBS + WBS Dictionary + Project Scope Statement (memorize this!)</li>
+                            <li><strong>RTM:</strong> Tracks requirements from origin to delivery, ensures nothing overlooked</li>
+                            <li><strong>WBS Dictionary:</strong> Detailed description of each work package</li>
+                            <li><strong>Validate Scope:</strong> Customer ACCEPTANCE (not correctness)</li>
+                            <li><strong>Quality Control:</strong> Team checks CORRECTNESS (not acceptance)</li>
+                            <li><strong>Control Scope:</strong> Monitor status, prevent scope creep, manage changes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 12 Section -->
+        <div id="day12" class="content-section">
+            <div class="study-card">
+                <div class="study-card-header">
+                    <h1 class="study-card-title">
+                        <span class="day-badge">Day 12</span>
+                        Schedule Management & Estimation
+                    </h1>
+                    <button class="bookmark-btn" onclick="toggleBookmark('day12')">⭐</button>
+                </div>
+                <div class="study-content">
+                    <p style="font-size: 1.125rem; margin-bottom: 2rem;">
+                        Day 12 covers Schedule Management, including critical estimation techniques. The Three-Point Estimate 
+                        formulas are ESSENTIAL for the PMP exam - you'll definitely see calculation questions!
+                    </p>
+                    
+                    <div class="key-points">
+                        <h3><span>🎯</span> Day 12 Core Topics</h3>
+                        <ul>
+                            <li><strong>Schedule Management Plan</strong> - How we'll manage the schedule</li>
+                            <li><strong>Define Activities</strong> - Breaking work into activities</li>
+                            <li><strong>Three Estimation Techniques</strong> - Analogous, Parametric, Three-Point</li>
+                            <li><strong>Three-Point Estimates</strong> - Triangular & PERT formulas (CRITICAL!)</li>
+                            <li><strong>Agile Estimation</strong> - Planning Poker, T-shirt Sizing</li>
+                            <li><strong>Agile Metrics</strong> - Lead Time, Cycle Time, WIP Limits</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>📅 Schedule Management Plan 🔥🔥</h2>
+                    <div class="key-points">
+                        <h3><span>📋</span> What is the Schedule Management Plan?</h3>
+                        <p><strong>Definition:</strong> A component of the project management plan that establishes criteria and activities for developing, monitoring, and controlling the schedule.</p>
+                        
+                        <p><strong>Purpose:</strong> Guides the team on how to define, approve, and control the project schedule.</p>
+                        
+                        <p><strong>Contents:</strong></p>
+                        <ul>
+                            <li>Schedule methodology (waterfall, agile, hybrid)</li>
+                            <li>Level of accuracy for estimates</li>
+                            <li>Units of measure (hours, days, weeks, sprints)</li>
+                            <li>Control thresholds (acceptable variance)</li>
+                            <li>Rules for measuring performance</li>
+                            <li>Schedule baseline maintenance procedures</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Waterfall vs Agile Scheduling</h3>
+                        <ul>
+                            <li><strong>Waterfall:</strong> Detailed schedule created upfront for entire project</li>
+                            <li><strong>Agile:</strong> High-level timeline with detailed planning per iteration</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>📝 Define Activities</h2>
+                    <div class="key-points">
+                        <h3><span>🎯</span> What is Define Activities?</h3>
+                        <p><strong>Definition:</strong> The process of identifying and documenting the specific actions to be performed to produce the project deliverables.</p>
+                        
+                        <p><strong>Key Differences by Methodology:</strong></p>
+                        
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Aspect</th>
+                                    <th>Waterfall/Predictive</th>
+                                    <th>Agile</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>When</strong></td>
+                                    <td>Upfront for entire project</td>
+                                    <td>Per iteration/sprint</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Scope</strong></td>
+                                    <td>All activities defined at once</td>
+                                    <td>Activities for current user stories</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Detail Level</strong></td>
+                                    <td>Very detailed from start</td>
+                                    <td>Just-in-time detailed planning</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Frequency</strong></td>
+                                    <td>One-time activity</td>
+                                    <td>Continuous, iterative</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h2>⏱️ Estimating Activity Durations 🔥🔥🔥</h2>
+                    <p>Three main estimation techniques used in waterfall/predictive projects:</p>
+                    
+                    <h3>1. Analogous Estimate (Top-Down)</h3>
+                    <div class="exam-tip">
+                        <p><strong>Definition:</strong> Using actual duration from similar past projects to estimate current project.</p>
+                        
+                        <p><strong>Characteristics:</strong></p>
+                        <ul>
+                            <li><strong>Speed:</strong> Quick and easy</li>
+                            <li><strong>Accuracy:</strong> Less accurate</li>
+                            <li><strong>Cost:</strong> Low cost</li>
+                            <li><strong>Basis:</strong> Expert judgment</li>
+                            <li><strong>When to Use:</strong> Limited information available, early in project</li>
+                        </ul>
+                        
+                        <p><strong>Example:</strong></p>
+                        <p>"Our last website project took 3 months. This new website is similar in complexity, so we estimate 3 months."</p>
+                    </div>
+                    
+                    <h3>2. Parametric Estimate</h3>
+                    <div class="exam-tip">
+                        <p><strong>Definition:</strong> Using statistical relationship between historical data and other variables to calculate estimates.</p>
+                        
+                        <p><strong>Formula:</strong></p>
+                        <pre style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+Duration = Quantity × Productivity Rate
+                        </pre>
+                        
+                        <p><strong>Characteristics:</strong></p>
+                        <ul>
+                            <li><strong>Accuracy:</strong> More accurate than analogous</li>
+                            <li><strong>Requirement:</strong> Needs reliable historical data</li>
+                            <li><strong>Basis:</strong> Mathematical model</li>
+                            <li><strong>When to Use:</strong> When you have quantifiable data</li>
+                        </ul>
+                        
+                        <p><strong>Examples:</strong></p>
+                        <ul>
+                            <li>1,000 lines of code × 10 lines/hour = 100 hours</li>
+                            <li>500 square meters × 2 hours/m² = 1,000 hours</li>
+                            <li>100 pages × 4 hours/page = 400 hours</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>3. Three-Point Estimate 🔥🔥🔥🔥</h3>
+                    <div class="warning">
+                        <h3><span>⚠️</span> MOST CRITICAL FOR EXAM!</h3>
+                        <p>You WILL get calculation questions on this. Memorize both formulas!</p>
+                    </div>
+                    
+                    <div class="key-points">
+                        <h3><span>🎯</span> What is Three-Point Estimate?</h3>
+                        <p><strong>Definition:</strong> Estimation technique that uses three scenarios to calculate expected duration and account for uncertainty.</p>
+                        
+                        <p><strong>Three Estimates:</strong></p>
+                        <ul>
+                            <li><strong>Optimistic (O):</strong> Best-case scenario (everything goes perfectly)</li>
+                            <li><strong>Most Likely (M):</strong> Normal/expected scenario (realistic)</li>
+                            <li><strong>Pessimistic (P):</strong> Worst-case scenario (everything goes wrong)</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Two Formulas for Three-Point Estimate</h3>
+                    
+                    <div class="warning">
+                        <h4>Formula 1: Triangular Distribution</h4>
+                        <pre style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 1.125rem;">
+Estimate = (Optimistic + Most Likely + Pessimistic) / 3
+
+Estimate = (O + M + P) / 3
+                        </pre>
+                        <p><strong>When to Use:</strong> Equal weight to all three estimates</p>
+                    </div>
+                    
+                    <div class="warning">
+                        <h4>Formula 2: PERT / Beta Distribution</h4>
+                        <pre style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 1.125rem;">
+Estimate = (Optimistic + 4×Most Likely + Pessimistic) / 6
+
+Estimate = (O + 4M + P) / 6
+                        </pre>
+                        <p><strong>When to Use:</strong> More weight on Most Likely scenario (most common in practice)</p>
+                    </div>
+                    
+                    <h3>Practice Examples</h3>
+                    <div class="exam-tip">
+                        <p><strong>Example 1:</strong></p>
+                        <ul>
+                            <li>Optimistic (O) = 10 days</li>
+                            <li>Most Likely (M) = 15 days</li>
+                            <li>Pessimistic (P) = 26 days</li>
+                        </ul>
+                        
+                        <p><strong>Triangular Distribution:</strong></p>
+                        <pre style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+= (10 + 15 + 26) / 3
+= 51 / 3
+= <strong>17 days</strong>
+                        </pre>
+                        
+                        <p><strong>PERT Distribution:</strong></p>
+                        <pre style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+= (10 + 4×15 + 26) / 6
+= (10 + 60 + 26) / 6
+= 96 / 6
+= <strong>16 days</strong>
+                        </pre>
+                    </div>
+                    
+                    <div class="exam-tip">
+                        <p><strong>Example 2:</strong></p>
+                        <ul>
+                            <li>Optimistic (O) = 5 days</li>
+                            <li>Most Likely (M) = 8 days</li>
+                            <li>Pessimistic (P) = 17 days</li>
+                        </ul>
+                        
+                        <p><strong>Triangular:</strong></p>
+                        <pre>= (5 + 8 + 17) / 3 = 30 / 3 = <strong>10 days</strong></pre>
+                        
+                        <p><strong>PERT:</strong></p>
+                        <pre>= (5 + 4×8 + 17) / 6 = (5 + 32 + 17) / 6 = 54 / 6 = <strong>9 days</strong></pre>
+                    </div>
+                    
+                    <div class="warning">
+                        <h3><span>💡</span> Exam Tips for Three-Point</h3>
+                        <ul>
+                            <li>PERT almost always gives slightly lower estimate (weights Most Likely more)</li>
+                            <li>The question will specify which formula to use, or say "Three-Point Estimate" (then use PERT)</li>
+                            <li>Practice calculating both so you can do it quickly</li>
+                            <li>Remember: PERT has the "4" in it</li>
+                            <li>Double-check your arithmetic - exam questions test calculation accuracy</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>🎲 Agile Estimation Techniques 🔥🔥</h2>
+                    
+                    <h3>1. Planning Poker</h3>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Consensus-based estimation technique using cards, based on Delphi method.</p>
+                        
+                        <p><strong>Process:</strong></p>
+                        <ol>
+                            <li>Product Owner presents user story</li>
+                            <li>Team discusses and asks questions</li>
+                            <li>Each team member selects estimate card <strong>independently</strong></li>
+                            <li>All reveal cards <strong>simultaneously</strong></li>
+                            <li>Discuss differences (especially highest and lowest)</li>
+                            <li>Re-estimate until consensus reached</li>
+                        </ol>
+                        
+                        <p><strong>Cards Used:</strong> Fibonacci sequence (1, 2, 3, 5, 8, 13, 21, 34, 55, 89...)</p>
+                        
+                        <p><strong>Why Fibonacci?</strong> Larger numbers have more uncertainty, so gaps increase</p>
+                    </div>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Planning Poker Benefits</h3>
+                        <ul>
+                            <li>Prevents anchoring bias (independent estimates)</li>
+                            <li>Encourages discussion and knowledge sharing</li>
+                            <li>Builds team consensus</li>
+                            <li>Fun and engaging</li>
+                            <li>Based on proven Delphi method</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>2. Affinity Estimation</h3>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Technique for quickly estimating a large number of items by grouping similar ones together.</p>
+                        
+                        <p><strong>Process:</strong></p>
+                        <ol>
+                            <li>Place user stories on wall</li>
+                            <li>Team silently groups similar-sized stories</li>
+                            <li>Discuss any disagreements</li>
+                            <li>Assign relative sizes to groups</li>
+                        </ol>
+                        
+                        <p><strong>When to Use:</strong> Large product backlog, need quick estimates</p>
+                    </div>
+                    
+                    <h3>3. T-shirt Sizing</h3>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Relative estimation using t-shirt sizes.</p>
+                        
+                        <p><strong>Sizes:</strong> XS, S, M, L, XL, XXL</p>
+                        
+                        <p><strong>Benefits:</strong></p>
+                        <ul>
+                            <li>Quick and intuitive</li>
+                            <li>Good for early planning</li>
+                            <li>Easy for non-technical stakeholders</li>
+                            <li>Later converted to story points</li>
+                        </ul>
+                        
+                        <p><strong>Example Conversion:</strong></p>
+                        <pre>XS = 1 point | S = 2 points | M = 3 points | L = 5 points | XL = 8 points | XXL = 13 points</pre>
+                    </div>
+                    
+                    <h2>📊 Agile Schedule Metrics 🔥🔥🔥</h2>
+                    <div class="warning">
+                        <h3><span>⚠️</span> Important: Agile Uses Flow Metrics, Not Burndown Charts!</h3>
+                        <p>The exam focuses on Lead Time, Cycle Time, and WIP limits - not traditional burndown charts.</p>
+                    </div>
+                    
+                    <h3>1. Lead Time 🔥🔥</h3>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Time from when customer makes request until they receive the deliverable.</p>
+                        
+                        <p><strong>Perspective:</strong> CUSTOMER view (request to delivery)</p>
+                        
+                        <p><strong>Example:</strong></p>
+                        <ul>
+                            <li>Customer requests feature on Monday</li>
+                            <li>Feature delivered on Friday</li>
+                            <li><strong>Lead Time = 5 days</strong></li>
+                        </ul>
+                        
+                        <p><strong>Why It Matters:</strong> Customers care about how long they wait for their request</p>
+                    </div>
+                    
+                    <h3>2. Cycle Time 🔥🔥</h3>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Time from when work starts until it's completed.</p>
+                        
+                        <p><strong>Perspective:</strong> TEAM view (start to finish)</p>
+                        
+                        <p><strong>Example:</strong></p>
+                        <ul>
+                            <li>Team starts work on Wednesday</li>
+                            <li>Work completed on Friday</li>
+                            <li><strong>Cycle Time = 2 days</strong></li>
+                        </ul>
+                        
+                        <p><strong>Why It Matters:</strong> Measures team efficiency and throughput</p>
+                    </div>
+                    
+                    <h3>3. Response Time</h3>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Time from when request is made until work begins.</p>
+                        
+                        <p><strong>Example:</strong></p>
+                        <ul>
+                            <li>Request made on Monday</li>
+                            <li>Work starts on Wednesday</li>
+                            <li><strong>Response Time = 2 days</strong></li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Critical Formula 🔥🔥🔥</h3>
+                    <div class="warning">
+                        <pre style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 1.125rem;">
+Lead Time = Response Time + Cycle Time
+                        </pre>
+                        
+                        <p><strong>Example:</strong></p>
+                        <ul>
+                            <li>Request Monday → Start Wednesday → Complete Friday</li>
+                            <li>Response Time = 2 days (Monday to Wednesday)</li>
+                            <li>Cycle Time = 2 days (Wednesday to Friday)</li>
+                            <li><strong>Lead Time = 2 + 2 = 4 days</strong> (Monday to Friday)</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>4. Work in Progress (WIP) Limit 🔥🔥</h3>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Maximum number of items allowed in progress simultaneously.</p>
+                        
+                        <p><strong>Purpose:</strong></p>
+                        <ul>
+                            <li>Prevent team overload</li>
+                            <li>Improve flow and quality</li>
+                            <li>Reduce multitasking</li>
+                            <li>Identify bottlenecks</li>
+                        </ul>
+                        
+                        <p><strong>Example:</strong></p>
+                        <p>Kanban board with WIP limit of 3 for "In Progress" column:</p>
+                        <ul>
+                            <li>Maximum 3 tasks can be in "In Progress" at once</li>
+                            <li>New task can't start until one completes</li>
+                            <li>Forces team to finish before starting new work</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> WIP Limit Benefits</h3>
+                        <ul>
+                            <li>Reduces context switching (remember Day 7!)</li>
+                            <li>Improves quality (focus on fewer items)</li>
+                            <li>Faster completion (finish before starting new)</li>
+                            <li>Identifies bottlenecks (work piles up before blocked stage)</li>
+                            <li>Core concept in Kanban method</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>📈 Comparison Table: All Estimation Techniques</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Technique</th>
+                                <th>Methodology</th>
+                                <th>Speed</th>
+                                <th>Accuracy</th>
+                                <th>Best Use</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Analogous</strong></td>
+                                <td>Waterfall</td>
+                                <td>Fast</td>
+                                <td>Low</td>
+                                <td>Early in project, limited info</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Parametric</strong></td>
+                                <td>Waterfall</td>
+                                <td>Medium</td>
+                                <td>High</td>
+                                <td>Quantifiable work, historical data</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Three-Point</strong></td>
+                                <td>Waterfall</td>
+                                <td>Medium</td>
+                                <td>High</td>
+                                <td>Uncertainty, need risk consideration</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Planning Poker</strong></td>
+                                <td>Agile</td>
+                                <td>Medium</td>
+                                <td>Good</td>
+                                <td>Team consensus, user stories</td>
+                            </tr>
+                            <tr>
+                                <td><strong>T-shirt Sizing</strong></td>
+                                <td>Agile</td>
+                                <td>Fast</td>
+                                <td>Low-Medium</td>
+                                <td>Large backlog, relative sizing</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Affinity</strong></td>
+                                <td>Agile</td>
+                                <td>Very Fast</td>
+                                <td>Low-Medium</td>
+                                <td>Many items, quick estimates</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="success-box">
+                        <h3><span>✅</span> Day 12 Key Takeaways</h3>
+                        <ul>
+                            <li><strong>Schedule Management Plan:</strong> Defines how schedule will be managed</li>
+                            <li><strong>Analogous:</strong> Quick, less accurate, based on similar past projects</li>
+                            <li><strong>Parametric:</strong> Uses formula (Quantity × Rate), more accurate</li>
+                            <li><strong>Three-Point Formulas:</strong> Triangular = (O+M+P)/3 | PERT = (O+4M+P)/6</li>
+                            <li><strong>Planning Poker:</strong> Consensus-based, Fibonacci cards, simultaneous reveal</li>
+                            <li><strong>Lead Time:</strong> Request to delivery (customer view)</li>
+                            <li><strong>Cycle Time:</strong> Start to finish (team view)</li>
+                            <li><strong>Formula:</strong> Lead Time = Response Time + Cycle Time</li>
+                            <li><strong>WIP Limits:</strong> Max items in progress, prevents overload</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Practice These Calculations!</h3>
+                        <p>You WILL see Three-Point Estimate questions on the exam. Practice until you can calculate quickly:</p>
+                        <ol>
+                            <li>Memorize both formulas</li>
+                            <li>Practice with different numbers</li>
+                            <li>Time yourself (should take <1 minute)</li>
+                            <li>Double-check your arithmetic</li>
+                        </ol>
                     </div>
                 </div>
             </div>
