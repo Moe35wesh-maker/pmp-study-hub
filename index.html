@@ -778,7 +778,7 @@
                 <div class="stat-header">
                     <div class="stat-icon">📚</div>
                     <div>
-                        <div class="stat-value" id="totalDays">12</div>
+                        <div class="stat-value" id="totalDays">13</div>
                         <div class="stat-label">Study Days Completed</div>
                     </div>
                 </div>
@@ -791,7 +791,7 @@
                 <div class="stat-header">
                     <div class="stat-icon">✅</div>
                     <div>
-                        <div class="stat-value" id="topicsCompleted">36</div>
+                        <div class="stat-value" id="topicsCompleted">42</div>
                         <div class="stat-label">Topics Mastered</div>
                     </div>
                 </div>
@@ -852,6 +852,9 @@
             </button>
             <button class="nav-tab" onclick="showTab('day12')">
                 <span>📅</span> Day 12
+            </button>
+            <button class="nav-tab" onclick="showTab('day13')">
+                <span>📅</span> Day 13
             </button>
             <button class="nav-tab" onclick="showTab('cheatsheet')">
                 <span>⚡</span> Cheat Sheets
@@ -961,6 +964,11 @@
                             <tr>
                                 <td><strong>Day 12</strong></td>
                                 <td>Schedule Management, Three-Point Estimates, Agile Metrics</td>
+                                <td><span style="color: var(--success);">✅ Complete</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Day 13</strong></td>
+                                <td>Burndown/Burnup, Critical Path, Dependencies, Float</td>
                                 <td><span style="color: var(--success);">✅ Complete</span></td>
                             </tr>
                         </tbody>
@@ -3722,6 +3730,743 @@ Lead Time = Response Time + Cycle Time
                             <li>Practice with different numbers</li>
                             <li>Time yourself (should take <1 minute)</li>
                             <li>Double-check your arithmetic</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 13 Section -->
+        <div id="day13" class="content-section">
+            <div class="study-card">
+                <div class="study-card-header">
+                    <h1 class="study-card-title">
+                        <span class="day-badge">Day 13</span>
+                        Critical Path, Network Diagrams & Schedule Optimization
+                    </h1>
+                    <button class="bookmark-btn" onclick="toggleBookmark('day13')">⭐</button>
+                </div>
+                <div class="study-content">
+                    <p style="font-size: 1.125rem; margin-bottom: 2rem;">
+                        Day 13 covers Critical Path Method, Schedule Network Diagrams, Dependencies, and Resource Optimization. 
+                        Understanding the Critical Path is ESSENTIAL for the PMP exam - expect multiple questions!
+                    </p>
+                    
+                    <div class="key-points">
+                        <h3><span>🎯</span> Day 13 Core Topics</h3>
+                        <ul>
+                            <li><strong>Burndown & Burnup Charts</strong> - Agile tracking methods</li>
+                            <li><strong>Story Points & Velocity</strong> - Team performance measurement</li>
+                            <li><strong>4 Logical Relationships</strong> - FS, SS, FF, SF</li>
+                            <li><strong>4 Types of Dependencies</strong> - Mandatory, Discretionary, External, Internal</li>
+                            <li><strong>Precedence Diagramming (PDM)</strong> - Activity-on-Node</li>
+                            <li><strong>Critical Path Method</strong> - Most critical for exam!</li>
+                            <li><strong>Schedule Compression</strong> - Fast Tracking vs Crashing</li>
+                            <li><strong>Resource Optimization</strong> - Leveling vs Smoothing</li>
+                            <li><strong>Float</strong> - Schedule flexibility</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>📊 Burndown Charts 🔥🔥</h2>
+                    <div class="key-points">
+                        <h3><span>📉</span> What is a Burndown Chart?</h3>
+                        <p><strong>Definition:</strong> A chart that tracks work remaining over time within a single iteration/sprint.</p>
+                        
+                        <p><strong>Key Characteristics:</strong></p>
+                        <ul>
+                            <li><strong>Direction:</strong> Curve slopes DOWN (work decreasing)</li>
+                            <li><strong>Horizontal Axis:</strong> Days in the sprint (e.g., Day 1 to Day 20)</li>
+                            <li><strong>Vertical Axis:</strong> Amount of work remaining</li>
+                            <li><strong>Measurement:</strong> Taken at END of each day</li>
+                            <li><strong>Scope:</strong> ONE sprint/iteration only</li>
+                        </ul>
+                        
+                        <p><strong>Two Lines on Chart:</strong></p>
+                        <ul>
+                            <li><strong>Blue Line:</strong> Planned/scheduled work remaining</li>
+                            <li><strong>Red Line:</strong> Actual work remaining</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Reading Burndown Charts</h3>
+                        <p><strong>Team is AHEAD of schedule when:</strong></p>
+                        <ul>
+                            <li>Actual line (red) is BELOW planned line (blue)</li>
+                            <li>Less work remaining than planned</li>
+                        </ul>
+                        
+                        <p><strong>Team is BEHIND schedule when:</strong></p>
+                        <ul>
+                            <li>Actual line (red) is ABOVE planned line (blue)</li>
+                            <li>More work remaining than planned</li>
+                        </ul>
+                        
+                        <p><strong>Goal:</strong> Both lines reach zero at end of sprint</p>
+                    </div>
+                    
+                    <h2>📈 Burnup Charts 🔥🔥</h2>
+                    <div class="key-points">
+                        <h3><span>📈</span> What is a Burnup Chart?</h3>
+                        <p><strong>Definition:</strong> A chart that tracks work completed over time across the entire project.</p>
+                        
+                        <p><strong>Key Differences from Burndown:</strong></p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Aspect</th>
+                                    <th>Burndown Chart</th>
+                                    <th>Burnup Chart</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Measures</strong></td>
+                                    <td>Work REMAINING</td>
+                                    <td>Work COMPLETED</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Direction</strong></td>
+                                    <td>Goes DOWN</td>
+                                    <td>Goes UP</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Scope</strong></td>
+                                    <td>ONE sprint</td>
+                                    <td>ENTIRE project</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Horizontal Axis</strong></td>
+                                    <td>Days in sprint</td>
+                                    <td>All sprints in project</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Shows Scope Changes</strong></td>
+                                    <td>No</td>
+                                    <td>Yes (blue line varies)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <p><strong>Three Lines on Burnup Chart:</strong></p>
+                        <ul>
+                            <li><strong>Blue Line:</strong> Total product backlog (scope)</li>
+                            <li><strong>Red Line:</strong> Planned velocity/progress</li>
+                            <li><strong>Green Line:</strong> Actual velocity/progress</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Reading Burnup Charts</h3>
+                        <p><strong>Blue Line (Backlog):</strong></p>
+                        <ul>
+                            <li>Generally horizontal (scope doesn't change by quantity)</li>
+                            <li>Has "waves" due to backlog refinement (add/remove stories)</li>
+                            <li>Represents total work to be done</li>
+                        </ul>
+                        
+                        <p><strong>Green vs Red Lines:</strong></p>
+                        <ul>
+                            <li>Green BELOW red = Behind schedule</li>
+                            <li>Green ABOVE red = Ahead of schedule</li>
+                            <li>When green reaches blue = Project complete!</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>📊 Story Points & Velocity 🔥🔥</h2>
+                    <div class="key-points">
+                        <h3><span>🎯</span> Story Points</h3>
+                        <p><strong>Definition:</strong> A unit of measure for the amount of effort required to complete a user story.</p>
+                        
+                        <p><strong>Key Points:</strong></p>
+                        <ul>
+                            <li>Arbitrary measure (team defines what it means)</li>
+                            <li>Team decides: 1 story point = X hours/days</li>
+                            <li>Standard across the team</li>
+                            <li>Example: Team agrees 1 story point = 5 work hours or 1 work day</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="warning">
+                        <h3><span>⚡</span> Velocity Formula</h3>
+                        <pre style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+Velocity = Total Story Points Completed / Number of Sprints
+                        </pre>
+                        
+                        <p><strong>Example:</strong></p>
+                        <ul>
+                            <li>120 story points completed</li>
+                            <li>6 sprints completed</li>
+                            <li>Velocity = 120 / 6 = <strong>20 story points per sprint</strong></li>
+                        </ul>
+                        
+                        <p><strong>Uses:</strong></p>
+                        <ul>
+                            <li>Measure team performance</li>
+                            <li>Plan future sprints</li>
+                            <li>Estimate project completion</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>🔗 Sequencing Activities</h2>
+                    <div class="key-points">
+                        <h3><span>📋</span> What is Sequencing?</h3>
+                        <p><strong>Definition:</strong> Arranging activities in the order in which they will be performed.</p>
+                        
+                        <p><strong>Purpose:</strong></p>
+                        <ul>
+                            <li>Determine which activities must be done in sequence</li>
+                            <li>Identify activities that can be done in parallel</li>
+                            <li>Create schedule network diagram</li>
+                        </ul>
+                        
+                        <p><strong>Key Terms:</strong></p>
+                        <ul>
+                            <li><strong>Predecessor:</strong> Activity done BEFORE another</li>
+                            <li><strong>Successor:</strong> Activity done AFTER another</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>🔄 4 Logical Relationships 🔥🔥🔥</h2>
+                    <div class="warning">
+                        <h3><span>⚠️</span> CRITICAL EXAM CONCEPT!</h3>
+                        <p>You MUST know all 4 logical relationships and be able to identify them in scenarios!</p>
+                    </div>
+                    
+                    <h3>1. Finish-to-Start (FS) 🔥🔥🔥</h3>
+                    <div class="exam-tip">
+                        <p><strong>Definition:</strong> Activity A must FINISH before Activity B can START.</p>
+                        
+                        <p><strong>Rule:</strong> You cannot start B if you haven't finished A.</p>
+                        
+                        <p><strong>Examples:</strong></p>
+                        <ul>
+                            <li>Cannot start building walls until foundation is FINISHED</li>
+                            <li>Cannot start painting until walls are FINISHED</li>
+                            <li>Cannot start roofing until structure is FINISHED</li>
+                        </ul>
+                        
+                        <p><strong>Most Common:</strong> This is the MOST COMMON logical relationship!</p>
+                    </div>
+                    
+                    <h3>2. Start-to-Start (SS) 🔥🔥</h3>
+                    <div class="exam-tip">
+                        <p><strong>Definition:</strong> Activity A must START before Activity B can START.</p>
+                        
+                        <p><strong>Rule:</strong> You must start A before starting B (but A doesn't need to finish).</p>
+                        
+                        <p><strong>Key Point:</strong> Activities can happen in PARALLEL!</p>
+                        
+                        <p><strong>Examples:</strong></p>
+                        <ul>
+                            <li>Must START writing document before you can START proofreading</li>
+                            <li>Must START eating before you can START drinking</li>
+                            <li>Must START trenching before you can START cabling</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>3. Finish-to-Finish (FF) 🔥🔥</h3>
+                    <div class="exam-tip">
+                        <p><strong>Definition:</strong> Activity A must FINISH before Activity B can FINISH.</p>
+                        
+                        <p><strong>Rule:</strong> You cannot finish B until A is finished (but can start B before A finishes).</p>
+                        
+                        <p><strong>Key Point:</strong> Activities are parallel, but A must finish first!</p>
+                        
+                        <p><strong>Examples:</strong></p>
+                        <ul>
+                            <li>Cannot FINISH proofreading until FINISH writing document</li>
+                            <li>Cannot FINISH cabling until FINISH trenching (cable must be in trench)</li>
+                            <li>Cannot FINISH testing until FINISH development</li>
+                        </ul>
+                        
+                        <p><strong>Note:</strong> Many Start-to-Start relationships become Finish-to-Finish!</p>
+                    </div>
+                    
+                    <h3>4. Start-to-Finish (SF) 🔥</h3>
+                    <div class="exam-tip">
+                        <p><strong>Definition:</strong> Activity A must START before Activity B can FINISH.</p>
+                        
+                        <p><strong>Rule:</strong> New activity must start before old activity can finish.</p>
+                        
+                        <p><strong>Least Common:</strong> Rarely used in practice!</p>
+                        
+                        <p><strong>Examples:</strong></p>
+                        <ul>
+                            <li><strong>Shift Changes:</strong> Next shift must START before previous shift can FINISH</li>
+                            <li><strong>Relay Race:</strong> Next runner must START before first runner can FINISH (hand off baton)</li>
+                            <li><strong>System Migration:</strong> New system must START before old system can FINISH retiring</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>🔗 4 Types of Dependencies 🔥🔥🔥</h2>
+                    <div class="warning">
+                        <h3><span>⚠️</span> Must Know for Exam!</h3>
+                    </div>
+                    
+                    <h3>1. Mandatory Dependencies (Hard Logic)</h3>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Dependencies imposed by contract or by nature.</p>
+                        
+                        <p><strong>Characteristics:</strong></p>
+                        <ul>
+                            <li>Physical limitations exist</li>
+                            <li>Contractual requirements exist</li>
+                            <li>Cannot be changed or overridden</li>
+                            <li>Also called "Hard Logic"</li>
+                        </ul>
+                        
+                        <p><strong>Examples:</strong></p>
+                        <ul>
+                            <li>Cannot build walls without foundation (physical)</li>
+                            <li>Cannot roof without columns (physical)</li>
+                            <li>Cannot launch without approval (contractual/legal)</li>
+                            <li>Cannot swallow before chewing (nature)</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>2. Discretionary Dependencies (Soft Logic)</h3>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Dependencies based on best practices that can be overridden with judgment.</p>
+                        
+                        <p><strong>Characteristics:</strong></p>
+                        <ul>
+                            <li>Based on industry best practice or common practice</li>
+                            <li>Team exercises judgment to change order</li>
+                            <li>Also called "Preferred Logic" or "Soft Logic"</li>
+                            <li>Can be modified based on circumstances</li>
+                        </ul>
+                        
+                        <p><strong>Example:</strong></p>
+                        <p><strong>Scenario:</strong> Best practice says "Service car BEFORE long trip"</p>
+                        <ul>
+                            <li>Mechanic not available → Exercise discretion</li>
+                            <li>Make judgment based on car condition</li>
+                            <li>Decide to take trip THEN service car after</li>
+                            <li>This is discretionary dependency</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>3. External Dependencies</h3>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Dependencies imposed by factors BEYOND the project team's control.</p>
+                        
+                        <p><strong>Characteristics:</strong></p>
+                        <ul>
+                            <li>Non-project activities</li>
+                            <li>Enterprise Environmental Factors (EEFs)</li>
+                            <li>Team cannot control or change them</li>
+                        </ul>
+                        
+                        <p><strong>Examples:</strong></p>
+                        <ul>
+                            <li>COVID travel bans preventing site visit</li>
+                            <li>Government approvals required before proceeding</li>
+                            <li>Vendor delivery delays</li>
+                            <li>Weather conditions</li>
+                            <li>Regulatory requirements</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>4. Internal Dependencies</h3>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Dependencies the team CAN control.</p>
+                        
+                        <p><strong>Characteristics:</strong></p>
+                        <ul>
+                            <li>Team decides activity order</li>
+                            <li>Based on team's free will</li>
+                            <li>No underlying best practice to override</li>
+                            <li>Matter of preference or choice</li>
+                        </ul>
+                        
+                        <p><strong>Difference from Discretionary:</strong></p>
+                        <ul>
+                            <li><strong>Discretionary:</strong> There IS an underlying best practice that you override</li>
+                            <li><strong>Internal:</strong> NO underlying best practice, just team preference</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>📐 Precedence Diagramming Method (PDM) 🔥🔥</h2>
+                    <div class="key-points">
+                        <h3><span>🎯</span> What is PDM?</h3>
+                        <p><strong>Definition:</strong> A technique for creating schedule network diagrams using nodes and arrows.</p>
+                        
+                        <p><strong>Also Called:</strong> Activity-on-Node (AON)</p>
+                        
+                        <p><strong>Components:</strong></p>
+                        <ul>
+                            <li><strong>Nodes (Boxes):</strong> Represent activities</li>
+                            <li><strong>Arrows (Lines):</strong> Represent dependencies between activities</li>
+                        </ul>
+                        
+                        <p><strong>Output:</strong> Schedule Network Diagram</p>
+                    </div>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Schedule Network Diagram</h3>
+                        <p>Shows all project activities and their relationships visually:</p>
+                        <ul>
+                            <li>Start and End nodes</li>
+                            <li>All activities in sequence</li>
+                            <li>Parallel activities</li>
+                            <li>Dependencies between activities</li>
+                            <li>Duration of each activity</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>🎯 Critical Path Method (CPM) 🔥🔥🔥🔥</h2>
+                    <div class="warning">
+                        <h3><span>⚠️</span> ONE OF THE MOST IMPORTANT PMP TOPICS!</h3>
+                        <p>Critical Path is HEAVILY TESTED on the PMP exam. You MUST master this!</p>
+                    </div>
+                    
+                    <div class="key-points">
+                        <h3><span>🎯</span> What is the Critical Path?</h3>
+                        <p><strong>Definition:</strong> The longest duration path through the schedule network diagram.</p>
+                        
+                        <p><strong>CRITICAL RULE:</strong></p>
+                        <pre style="background: var(--warning); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-weight: bold;">
+The Critical Path represents the SHORTEST POSSIBLE DURATION of the project.
+
+It is the EARLIEST the project can finish.
+                        </pre>
+                    </div>
+                    
+                    <h3>How to Find the Critical Path</h3>
+                    <div class="exam-tip">
+                        <p><strong>Step-by-Step Process:</strong></p>
+                        <ol>
+                            <li>Identify all paths from start to end in the network diagram</li>
+                            <li>Calculate the duration of each path (sum all activities)</li>
+                            <li>The path with the LONGEST duration = Critical Path</li>
+                        </ol>
+                        
+                        <p><strong>Example:</strong></p>
+                        <pre style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+Path 1: 1 → 2 → 4 → 7 = 20 + 25 + 25 + 6 = 76 days
+Path 2: 1 → 2 → 5 → 7 = 20 + 25 + 18 + 6 = 69 days
+Path 3: 1 → 3 → 6 → 8 = 20 + 20 + 10 + 4 = 54 days
+
+CRITICAL PATH = Path 1 (76 days) ✅
+                        </pre>
+                    </div>
+                    
+                    <h3>Why Critical Path Matters</h3>
+                    <div class="warning">
+                        <h3><span>💡</span> Critical Understanding</h3>
+                        <p><strong>The project CANNOT finish until the Critical Path is complete!</strong></p>
+                        
+                        <p><strong>Example Logic:</strong></p>
+                        <ul>
+                            <li>Path 2 takes 69 days to complete</li>
+                            <li>But when Path 2 finishes, Critical Path (76 days) is still running</li>
+                            <li>Project cannot finish until ALL activities complete</li>
+                            <li>Therefore, project needs full 76 days (Critical Path duration)</li>
+                        </ul>
+                        
+                        <p><strong>Key Points:</strong></p>
+                        <ul>
+                            <li>Critical Path activities have ZERO float</li>
+                            <li>Any delay on Critical Path delays entire project</li>
+                            <li>Focus resources on Critical Path activities</li>
+                            <li>Can have multiple Critical Paths (same longest duration)</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>⏱️ Float (Slack) 🔥🔥🔥</h2>
+                    <div class="key-points">
+                        <h3><span>📊</span> What is Float?</h3>
+                        <p><strong>Definition:</strong> The amount of time an activity can be delayed without delaying the project.</p>
+                        
+                        <p><strong>Also Called:</strong> Slack</p>
+                        
+                        <p><strong>Formula:</strong></p>
+                        <pre style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+Float = Latest Finish - Earliest Finish
+OR
+Float = Latest Start - Earliest Start
+                        </pre>
+                    </div>
+                    
+                    <div class="warning">
+                        <h3><span>⚠️</span> Critical Rules About Float</h3>
+                        <ul>
+                            <li><strong>Critical Path activities have ZERO float</strong></li>
+                            <li><strong>Non-critical activities have positive float</strong></li>
+                            <li>More float = More flexibility in scheduling</li>
+                            <li>Activities with float can start later without impacting project</li>
+                        </ul>
+                        
+                        <p><strong>Example:</strong></p>
+                        <ul>
+                            <li>Activity 4 takes 25 days (on Critical Path)</li>
+                            <li>Activity 5 takes 18 days (parallel to Activity 4)</li>
+                            <li>Activity 5 finishes 7 days early</li>
+                            <li><strong>Activity 5 has 7 days float</strong></li>
+                            <li>Team can "lounge" for 7 days waiting for Activity 4 to finish</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>⚡ Schedule Compression 🔥🔥🔥</h2>
+                    <p>When Critical Path is longer than project deadline, use compression techniques:</p>
+                    
+                    <h3>1. Fast Tracking</h3>
+                    <div class="exam-tip">
+                        <p><strong>Definition:</strong> Performing activities in PARALLEL that were planned to be done in SEQUENCE.</p>
+                        
+                        <p><strong>How It Works:</strong></p>
+                        <ul>
+                            <li>Give successor activity an EARLY START</li>
+                            <li>Start Activity B before Activity A finishes</li>
+                            <li>Activities overlap/run simultaneously</li>
+                        </ul>
+                        
+                        <p><strong>Example:</strong></p>
+                        <ul>
+                            <li>Original: Roofing (finish) → THEN → Plastering (start)</li>
+                            <li>Fast Tracked: Roofing 50% done → START Plastering</li>
+                            <li>Both activities running at same time</li>
+                        </ul>
+                        
+                        <p><strong>Advantages:</strong></p>
+                        <ul>
+                            <li>✅ Saves time</li>
+                            <li>✅ No extra cost</li>
+                        </ul>
+                        
+                        <p><strong>Disadvantages:</strong></p>
+                        <ul>
+                            <li>❌ INCREASES RISK</li>
+                            <li>❌ Can lead to rework/defects</li>
+                            <li>❌ May compromise quality</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>2. Crashing</h3>
+                    <div class="exam-tip">
+                        <p><strong>Definition:</strong> Adding MORE RESOURCES to an activity to shorten its duration.</p>
+                        
+                        <p><strong>How It Works:</strong></p>
+                        <ul>
+                            <li>Add more people to the activity</li>
+                            <li>Add more equipment</li>
+                            <li>Focus on CRITICAL PATH activities</li>
+                        </ul>
+                        
+                        <p><strong>Example:</strong></p>
+                        <ul>
+                            <li>Original: 5 people working on activity = 25 days</li>
+                            <li>Crashed: 10 people working on activity = 15 days</li>
+                        </ul>
+                        
+                        <p><strong>Advantages:</strong></p>
+                        <ul>
+                            <li>✅ Saves time</li>
+                            <li>✅ Reduces duration</li>
+                            <li>✅ Lower risk than fast tracking</li>
+                        </ul>
+                        
+                        <p><strong>Disadvantages:</strong></p>
+                        <ul>
+                            <li>❌ INCREASES COST</li>
+                            <li>❌ Requires available resources</li>
+                            <li>❌ Subject to diminishing returns</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Diminishing Returns</h3>
+                    <div class="warning">
+                        <h3><span>⚠️</span> Law of Diminishing Returns</h3>
+                        <p><strong>Concept:</strong> There's a limit to how much adding resources helps.</p>
+                        
+                        <p>Beyond a certain point, additional resources don't translate to proportional time savings.</p>
+                        
+                        <p><strong>Example - Concrete Mixer:</strong></p>
+                        <ul>
+                            <li>1 person feeding mixer = slow</li>
+                            <li>3 people feeding mixer = much faster</li>
+                            <li>5 people feeding mixer = somewhat faster</li>
+                            <li>10 people feeding mixer = no faster (mixer at capacity!)</li>
+                        </ul>
+                        
+                        <p><strong>Rule:</strong> Crashing only works up to a certain point!</p>
+                    </div>
+                    
+                    <h3>When to Use Each Technique</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Situation</th>
+                                <th>Use Fast Tracking</th>
+                                <th>Use Crashing</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Resources Available?</strong></td>
+                                <td>Yes or No</td>
+                                <td>Yes (must have extra resources)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Budget Available?</strong></td>
+                                <td>Not needed</td>
+                                <td>Yes (costs more)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Risk Tolerance</strong></td>
+                                <td>Can accept higher risk</td>
+                                <td>Want lower risk</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dependencies</strong></td>
+                                <td>Activities can overlap safely</td>
+                                <td>Activities strictly sequential</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h2>🔧 Resource Optimization 🔥🔥</h2>
+                    
+                    <h3>1. Resource Leveling</h3>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Adjusting start and finish dates based on resource AVAILABILITY.</p>
+                        
+                        <p><strong>When to Use:</strong></p>
+                        <ul>
+                            <li>Resources not available when originally planned</li>
+                            <li>Resource constraints exist</li>
+                            <li>Resources are scarce</li>
+                        </ul>
+                        
+                        <p><strong>What It Does:</strong></p>
+                        <ul>
+                            <li>Moves activities to when resources ARE available</li>
+                            <li>Adjusts schedule dates</li>
+                            <li><strong>SHIFTS THE CRITICAL PATH</strong></li>
+                            <li>May extend project duration</li>
+                        </ul>
+                        
+                        <p><strong>Example:</strong></p>
+                        <ul>
+                            <li>Activity scheduled for June</li>
+                            <li>Key resource unavailable until July</li>
+                            <li>Move activity to July</li>
+                            <li>Critical path shifts/extends</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>2. Resource Smoothing</h3>
+                    <div class="key-points">
+                        <p><strong>Definition:</strong> Optimizing resource usage based on FLOAT without changing Critical Path.</p>
+                        
+                        <p><strong>When to Use:</strong></p>
+                        <ul>
+                            <li>Want to optimize resource usage</li>
+                            <li>Activities with float exist</li>
+                            <li>Can redeploy resources from non-critical to critical activities</li>
+                        </ul>
+                        
+                        <p><strong>What It Does:</strong></p>
+                        <ul>
+                            <li>Uses float from non-critical activities</li>
+                            <li>Redeploys resources to critical path</li>
+                            <li><strong>Does NOT change Critical Path</strong></li>
+                            <li>May shorten project duration</li>
+                        </ul>
+                        
+                        <p><strong>Example:</strong></p>
+                        <ul>
+                            <li>Activity 5 has 7 days float (finishes early)</li>
+                            <li>Activity 4 (critical path) needs help</li>
+                            <li>Redeploy Activity 5 resources to Activity 4</li>
+                            <li>Activity 4 finishes faster</li>
+                            <li>Critical path may shorten</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Resource Leveling vs Resource Smoothing</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>Resource Leveling</th>
+                                <th>Resource Smoothing</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Based On</strong></td>
+                                <td>Resource AVAILABILITY</td>
+                                <td>FLOAT in schedule</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Critical Path</strong></td>
+                                <td>SHIFTS critical path</td>
+                                <td>Does NOT shift critical path</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Project Duration</strong></td>
+                                <td>May EXTEND duration</td>
+                                <td>May SHORTEN duration</td>
+                            </tr>
+                            <tr>
+                                <td><strong>When Used</strong></td>
+                                <td>Resource constraints exist</td>
+                                <td>Want to optimize resources</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Control</strong></td>
+                                <td>Limited (based on availability)</td>
+                                <td>More control (use float)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="success-box">
+                        <h3><span>✅</span> Day 13 Key Takeaways</h3>
+                        <ul>
+                            <li><strong>Burndown:</strong> Work REMAINING in ONE sprint, goes DOWN</li>
+                            <li><strong>Burnup:</strong> Work COMPLETED across ENTIRE project, goes UP</li>
+                            <li><strong>Velocity:</strong> Story points completed / Number of sprints</li>
+                            <li><strong>4 Relationships:</strong> FS (most common), SS, FF, SF (rare)</li>
+                            <li><strong>4 Dependencies:</strong> Mandatory (hard logic), Discretionary (soft logic), External, Internal</li>
+                            <li><strong>Critical Path:</strong> LONGEST path = SHORTEST project duration</li>
+                            <li><strong>Float:</strong> Critical Path = ZERO float, Non-critical = Positive float</li>
+                            <li><strong>Fast Tracking:</strong> Parallel activities, increases risk, no cost</li>
+                            <li><strong>Crashing:</strong> Add resources, increases cost, diminishing returns</li>
+                            <li><strong>Leveling:</strong> Based on availability, shifts critical path</li>
+                            <li><strong>Smoothing:</strong> Uses float, doesn't shift critical path</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="exam-tip">
+                        <h3><span>💡</span> Critical Exam Formulas</h3>
+                        <pre style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+<strong>Velocity:</strong>
+Velocity = Total Story Points / Number of Sprints
+
+<strong>Float:</strong>
+Float = Latest Finish - Earliest Finish
+Float = Latest Start - Earliest Start
+
+<strong>Critical Path:</strong>
+Critical Path = LONGEST duration path
+Critical Path Duration = Shortest possible project duration
+Critical Path Activities = ZERO float
+                        </pre>
+                    </div>
+                    
+                    <div class="warning">
+                        <h3><span>⚠️</span> Practice This!</h3>
+                        <p>To master Day 13 for the exam:</p>
+                        <ol>
+                            <li><strong>Draw network diagrams:</strong> Practice identifying paths</li>
+                            <li><strong>Calculate Critical Path:</strong> Do 10+ examples</li>
+                            <li><strong>Identify relationships:</strong> FS, SS, FF, SF in scenarios</li>
+                            <li><strong>Distinguish dependencies:</strong> Mandatory vs Discretionary</li>
+                            <li><strong>Know float concept:</strong> Zero on critical path</li>
+                            <li><strong>Compression techniques:</strong> When to fast track vs crash</li>
                         </ol>
                     </div>
                 </div>
